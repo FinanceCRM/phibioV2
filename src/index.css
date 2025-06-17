@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles */
+/* Essential base styles only */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -20,47 +20,22 @@
   }
 }
 
-/* Custom component styles */
+/* Essential component utilities */
 @layer components {
-  .hero-bg {
-    background: linear-gradient(135deg, rgba(22, 163, 74, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
-  }
-  
-  .navbar-blur {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  
   .gradient-text {
     background: linear-gradient(135deg, #15803d, #ca8a04);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
-  .glass-effect {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .card-hover {
-    transition: all 0.3s ease;
-  }
-  
-  .card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
 }
 
-/* Smooth scrolling and performance */
+/* Smooth scrolling with navbar offset */
 * {
   scroll-margin-top: 100px;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - keep this for brand consistency */
 ::-webkit-scrollbar {
   width: 8px;
 }

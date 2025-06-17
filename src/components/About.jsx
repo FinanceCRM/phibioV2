@@ -11,7 +11,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-white to-beige-50">
+    <section id="about" className="py-24 bg-gradient-to-b from-white to-luxury-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -64,11 +64,11 @@ const About = () => {
               </p>
             </div>
 
-            <div className="flex items-center space-x-4 pt-6">
-              <button className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-full font-inter font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-6">
+              <button className="bg-gradient-to-r from-primary-600 via-primary-700 to-gold-600 text-white px-8 py-3 rounded-2xl font-inter font-semibold shadow-luxury hover:shadow-luxury-lg transform hover:scale-105 transition-all duration-300">
                 Learn More
               </button>
-              <button className="text-primary-700 font-inter font-semibold hover:text-primary-800 transition-colors duration-200">
+              <button className="text-primary-700 font-inter font-semibold hover:text-primary-800 transition-colors duration-300 underline underline-offset-4 hover:underline-offset-8">
                 Download Brochure
               </button>
             </div>
@@ -80,7 +80,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-8"
+            className="grid grid-cols-2 gap-6"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -89,12 +89,12 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center card-hover"
+                className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-luxury hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-300 text-center group border border-luxury-platinum/20"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-gold-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-glow-green transition-all duration-300">
                   <stat.icon className="h-8 w-8 text-primary-600" />
                 </div>
-                <div className="text-3xl font-playfair font-bold text-primary-900 mb-2">
+                <div className="text-3xl font-playfair font-bold text-primary-900 mb-2 group-hover:text-primary-700 transition-colors duration-300">
                   {stat.number}
                 </div>
                 <div className="text-gray-600 font-inter font-medium">
@@ -104,6 +104,51 @@ const About = () => {
             ))}
           </motion.div>
         </div>
+
+        {/* Additional Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-24 grid md:grid-cols-3 gap-8"
+        >
+          <div className="text-center group">
+            <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:shadow-glow-green transition-all duration-300">
+              <Leaf className="h-10 w-10 text-white" />
+            </div>
+            <h4 className="text-xl font-playfair font-semibold text-primary-900 mb-3">
+              Sustainable Practices
+            </h4>
+            <p className="text-gray-600 font-inter leading-relaxed">
+              Every process is designed with environmental responsibility at its core.
+            </p>
+          </div>
+
+          <div className="text-center group">
+            <div className="w-20 h-20 bg-gradient-to-br from-gold-500 to-gold-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:shadow-glow-gold transition-all duration-300">
+              <Microscope className="h-10 w-10 text-white" />
+            </div>
+            <h4 className="text-xl font-playfair font-semibold text-primary-900 mb-3">
+              Advanced Research
+            </h4>
+            <p className="text-gray-600 font-inter leading-relaxed">
+              Cutting-edge laboratory facilities and state-of-the-art equipment.
+            </p>
+          </div>
+
+          <div className="text-center group">
+            <div className="w-20 h-20 bg-gradient-to-br from-primary-600 to-gold-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:shadow-luxury transition-all duration-300">
+              <Award className="h-10 w-10 text-white" />
+            </div>
+            <h4 className="text-xl font-playfair font-semibold text-primary-900 mb-3">
+              Quality Excellence
+            </h4>
+            <p className="text-gray-600 font-inter leading-relaxed">
+              Award-winning commitment to the highest standards of quality and safety.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

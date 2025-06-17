@@ -6,13 +6,13 @@ const Hero = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-beige-50">
+      <div className="absolute inset-0 bg-gradient-to-br from-luxury-cream via-white to-beige-50">
         {/* Floating Elements */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-primary-200 rounded-full opacity-30"
+              className="absolute w-2 h-2 bg-primary-200/40 rounded-full"
               initial={{
                 x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
                 y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
@@ -32,11 +32,11 @@ const Hero = () => {
         </div>
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/10 via-transparent to-gold-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/5 via-transparent to-gold-900/5" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 font-inter max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed"
           >
             Pioneering sustainable solutions that harness the power of nature to create 
             innovative biotechnology products for a healthier tomorrow.
@@ -71,56 +71,104 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
           >
-            <button className="group bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-full font-inter font-semibold text-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center space-x-2">
+            <button className="group bg-gradient-to-r from-primary-600 via-primary-700 to-gold-600 text-white px-8 py-4 rounded-2xl font-inter font-semibold text-lg shadow-luxury hover:shadow-luxury-lg transform hover:scale-105 transition-all duration-300 flex items-center space-x-2">
               <span>Discover Our Science</span>
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
             
-            <button className="group flex items-center space-x-3 text-primary-700 hover:text-primary-800 transition-colors duration-200">
-              <div className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-200">
+            <button className="group flex items-center space-x-3 text-primary-700 hover:text-primary-800 transition-colors duration-300">
+              <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-luxury group-hover:shadow-luxury-lg group-hover:scale-105 transition-all duration-300">
                 <Play className="h-6 w-6 ml-1" />
               </div>
-              <span className="font-inter font-medium text-lg">Watch Our Story</span>
+              <span className="font-inter font-semibold text-lg">Watch Our Story</span>
             </button>
           </motion.div>
 
-          {/* Scroll Indicator */}
+          {/* Features Pills */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-wrap justify-center gap-4 pt-8"
           >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-primary-600 rounded-full flex justify-center"
-            >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-3 bg-primary-600 rounded-full mt-2"
-              />
-            </motion.div>
+            {['Sustainable Innovation', 'Bio-Technology', 'Natural Solutions'].map((feature, index) => (
+              <div 
+                key={index}
+                className="px-6 py-3 bg-white/60 backdrop-blur-sm rounded-full border border-primary-100 text-primary-700 font-inter font-medium hover:bg-white/80 hover:scale-105 transition-all duration-300"
+              >
+                {feature}
+              </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-6 h-10 border-2 border-primary-600/60 rounded-full flex justify-center cursor-pointer hover:border-primary-600 transition-colors duration-300"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1.5 h-3 bg-primary-600 rounded-full mt-2"
+          />
+        </motion.div>
+      </motion.div>
 
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 opacity-20">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="w-32 h-32 border border-primary-300 rounded-full"
+          className="w-32 h-32 border border-primary-300/50 rounded-full"
         />
       </div>
       <div className="absolute bottom-20 right-10 opacity-20">
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="w-24 h-24 border border-gold-300 rounded-full"
+          className="w-24 h-24 border border-gold-300/50 rounded-full"
+        />
+      </div>
+      
+      {/* Additional floating geometric shapes */}
+      <div className="absolute top-1/4 right-20 opacity-10">
+        <motion.div
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 180, 360] 
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="w-16 h-16 bg-gradient-to-br from-primary-400 to-gold-400 rounded-2xl"
+        />
+      </div>
+      
+      <div className="absolute bottom-1/4 left-20 opacity-10">
+        <motion.div
+          animate={{ 
+            y: [0, 15, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="w-12 h-12 bg-gradient-to-br from-gold-400 to-primary-400 rounded-full"
         />
       </div>
     </section>

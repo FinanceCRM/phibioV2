@@ -115,10 +115,10 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-2xl shadow-luxury border-b border-gray-200/50'
-          : 'bg-transparent'
+          ? 'bg-white shadow-lg border-b border-gray-200'
+          : 'bg-white/90'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,9 +133,7 @@ const Navbar = () => {
             <div className="w-11 h-11 bg-gradient-to-br from-primary-600 via-primary-700 to-gold-600 rounded-2xl flex items-center justify-center shadow-luxury">
               <Leaf className="h-6 w-6 text-white" />
             </div>
-            <span className={`text-2xl font-playfair font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-slate-800' : 'text-white'
-            }`}>
+            <span className="text-2xl font-playfair font-bold text-slate-800 transition-colors duration-300">
               Phibio
             </span>
           </motion.div>
@@ -154,22 +152,15 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter font-medium transition-all duration-300 relative overflow-hidden group ${
-                    isScrolled 
-                      ? 'text-slate-700 hover:text-primary-600 hover:bg-primary-50' 
-                      : 'text-white hover:text-gold-300 hover:bg-white/10'
-                  }`}
-                >
-                  {/* Shimmer effect */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                  
-                  <span className="relative z-10">{item.name}</span>
+                  className="flex items-center space-x-1 px-4 py-3 rounded-xl font-inter font-medium transition-colors duration-200 text-slate-700 hover:text-primary-600 hover:bg-gray-100"
+                                  >
+                    <span>{item.name}</span>
                   {item.hasDropdown && (
-                    <ChevronDown 
-                      className={`h-4 w-4 transition-transform duration-300 relative z-10 ${
-                        activeDropdown === item.name ? 'rotate-180' : ''
-                      }`} 
-                    />
+                                          <ChevronDown 
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          activeDropdown === item.name ? 'rotate-180' : ''
+                        }`} 
+                      />
                   )}
                 </motion.a>
 
@@ -181,7 +172,7 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 bg-white/98 backdrop-blur-2xl rounded-3xl shadow-luxury-xl border border-gray-200/50 p-6"
+                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 bg-white rounded-2xl shadow-lg border border-gray-200 p-6"
                     >
                       <div className="space-y-2">
                         {item.dropdownItems.map((dropdownItem, idx) => (
@@ -191,9 +182,9 @@ const Navbar = () => {
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: idx * 0.1, ease: [0.4, 0, 0.2, 1] }}
-                            className="group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gradient-to-r hover:from-primary-50 hover:to-gold-50 transition-all duration-300 cursor-pointer"
+                            className="group flex items-start space-x-4 p-3 rounded-xl hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
                           >
-                            <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-gold-100 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:shadow-glow-green transition-all duration-300">
+                                                          <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
                               <dropdownItem.icon className="h-6 w-6 text-primary-600" />
                             </div>
                             <div className="flex-1">
@@ -232,14 +223,11 @@ const Navbar = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 }}
-              className="ml-6 bg-gradient-to-r from-primary-600 via-primary-700 to-gold-600 text-white px-6 py-3 rounded-2xl font-inter font-semibold shadow-luxury hover:shadow-luxury-lg hover:scale-105 transition-all duration-300 group relative overflow-hidden"
-            >
-              {/* Button shimmer effect */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-              
-              <span className="flex items-center space-x-2 relative z-10">
+              className="ml-6 bg-primary-600 text-white px-6 py-3 rounded-xl font-inter font-semibold shadow-md hover:bg-primary-700 transition-colors duration-200"
+                          >
+                <span className="flex items-center space-x-2">
                 <span>Get Started</span>
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                  <ArrowRight className="h-4 w-4" />
               </span>
             </motion.button>
           </div>
@@ -248,11 +236,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-3 rounded-2xl transition-all duration-300 ${
-                isScrolled 
-                  ? 'text-slate-700 hover:bg-primary-50' 
-                  : 'text-white hover:bg-white/10'
-              }`}
+              className="p-3 rounded-xl transition-colors duration-200 text-slate-700 hover:bg-gray-100"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -268,7 +252,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/98 backdrop-blur-2xl border-t border-gray-200/50 shadow-luxury-lg overflow-hidden"
+            className="lg:hidden bg-white border-t border-gray-200/30 shadow-luxury-lg overflow-hidden"
           >
             <div className="px-4 py-6 space-y-6 max-h-screen overflow-y-auto">
               {navigationItems.map((item, index) => (

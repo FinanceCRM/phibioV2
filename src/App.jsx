@@ -7,6 +7,7 @@ import Intraocular from './pages/product/Intraocular'
 import Intraarticular from './pages/product/Intraarticular'
 import DermalFillers from './pages/product/DermalFillers'
 import Publications from './pages/Publications'
+import Career from './pages/Career'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/products/intraarticular" element={<Intraarticular />} />
         <Route path="/products/dermal-fillers" element={<DermalFillers />} />
         <Route path="/publications" element={<Publications />} />
+        <Route path="/career" element={<Career />} />
       </Routes>
       <Footer />
     </div>

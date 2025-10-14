@@ -86,6 +86,7 @@ const Navbar = () => {
 
   const languages = [
     { code: 'en', label: 'English', flag: '🇺🇸' },
+    { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
     { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
     { code: 'es', label: 'Español', flag: '🇪🇸' },
     { code: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -134,9 +135,9 @@ const Navbar = () => {
     },
     {
       name: t('nav.career'),
-      href: '#career',
+      href: '/career',
       hasDropdown: false,
-      isRoute: false
+      isRoute: true
     },
     {
       name: t('nav.contact'),

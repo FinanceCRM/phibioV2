@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { 
@@ -22,23 +22,25 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 
 const Publications = () => {
   const { t } = useTranslation()
+  const [hoveredCountry, setHoveredCountry] = useState(null)
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
 
   // Countries where we operate with their coordinates
   const countries = [
-    { name: "Germany", coordinates: [10.4515, 51.1657], continent: "europe" },
-    { name: "Romania", coordinates: [24.9668, 45.9432], continent: "europe" },
-    { name: "Türkiye", coordinates: [35.2433, 38.9637], continent: "europe" },
-    { name: "Azerbaijan", coordinates: [47.5769, 40.1431], continent: "asia" },
-    { name: "Greece", coordinates: [21.8243, 39.0742], continent: "europe" },
-    { name: "Bulgaria", coordinates: [25.4858, 42.7339], continent: "europe" },
-    { name: "Mali", coordinates: [-3.9962, 17.5707], continent: "africa" },
-    { name: "Pakistan", coordinates: [69.3451, 30.3753], continent: "asia" },
-    { name: "Russia", coordinates: [105.3188, 61.5240], continent: "europe" },
-    { name: "UAE", coordinates: [53.8478, 23.4241], continent: "middleEast" },
-    { name: "France", coordinates: [2.2137, 46.2276], continent: "europe" },
-    { name: "Iran", coordinates: [53.6880, 32.4279], continent: "middleEast" },
-    { name: "Armenia", coordinates: [45.0382, 40.0691], continent: "asia" },
-    { name: "Latvia", coordinates: [24.6032, 56.8796], continent: "europe" },
+    { name: "Germany", coordinates: [10.4515, 51.1657], continent: "europe", flag: "🇩🇪" },
+    { name: "Romania", coordinates: [24.9668, 45.9432], continent: "europe", flag: "🇷🇴" },
+    { name: "Türkiye", coordinates: [35.2433, 38.9637], continent: "europe", flag: "🇹🇷" },
+    { name: "Azerbaijan", coordinates: [47.5769, 40.1431], continent: "asia", flag: "🇦🇿" },
+    { name: "Greece", coordinates: [21.8243, 39.0742], continent: "europe", flag: "🇬🇷" },
+    { name: "Bulgaria", coordinates: [25.4858, 42.7339], continent: "europe", flag: "🇧🇬" },
+    { name: "Mali", coordinates: [-3.9962, 17.5707], continent: "africa", flag: "🇲🇱" },
+    { name: "Pakistan", coordinates: [69.3451, 30.3753], continent: "asia", flag: "🇵🇰" },
+    { name: "Russia", coordinates: [105.3188, 61.5240], continent: "europe", flag: "🇷🇺" },
+    { name: "UAE", coordinates: [53.8478, 23.4241], continent: "middleEast", flag: "🇦🇪" },
+    { name: "France", coordinates: [2.2137, 46.2276], continent: "europe", flag: "🇫🇷" },
+    { name: "Iran", coordinates: [53.6880, 32.4279], continent: "middleEast", flag: "🇮🇷" },
+    { name: "Armenia", coordinates: [45.0382, 40.0691], continent: "asia", flag: "🇦🇲" },
+    { name: "Latvia", coordinates: [24.6032, 56.8796], continent: "europe", flag: "🇱🇻" },
   ]
 
   const stats = [
@@ -155,67 +157,194 @@ const Publications = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-primary-50 to-gold-50 rounded-3xl p-8 shadow-xl border border-gray-100 mb-12"
+            className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 shadow-2xl border-2 border-primary-500/20 mb-12 overflow-hidden"
           >
-            <ComposableMap
-              projection="geoMercator"
-              projectionConfig={{
-                scale: 150,
-                center: [30, 40]
-              }}
-              className="w-full h-[500px]"
-            >
-              <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
-                    const isActive = countries.some(
-                      country => geo.properties.name === country.name || 
-                                 (country.name === "Türkiye" && geo.properties.name === "Turkey") ||
-                                 (country.name === "UAE" && geo.properties.name === "United Arab Emirates")
-                    )
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill={isActive ? "#10b981" : "#e5e7eb"}
-                        stroke="#ffffff"
-                        strokeWidth={0.5}
+            {/* Decorative elements */}
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl" />
+            
+            {/* Tooltip */}
+            {hoveredCountry && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                style={{
+                  position: 'fixed',
+                  left: tooltipPosition.x + 10,
+                  top: tooltipPosition.y - 10,
+                  pointerEvents: 'none',
+                  zIndex: 1000
+                }}
+                className="bg-white rounded-xl shadow-2xl px-4 py-3 border-2 border-primary-500"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">{hoveredCountry.flag}</span>
+                  <span className="font-bold text-slate-900">{hoveredCountry.name}</span>
+                </div>
+              </motion.div>
+            )}
+
+            <div className="relative">
+              <ComposableMap
+                projection="geoMercator"
+                projectionConfig={{
+                  scale: 150,
+                  center: [30, 40]
+                }}
+                className="w-full h-[600px]"
+              >
+                <defs>
+                  <linearGradient id="activeGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#059669" stopOpacity="1" />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  <filter id="shadow">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.3"/>
+                  </filter>
+                </defs>
+                
+                <Geographies geography={geoUrl}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      const isActive = countries.some(
+                        country => geo.properties.name === country.name || 
+                                   (country.name === "Türkiye" && geo.properties.name === "Turkey") ||
+                                   (country.name === "UAE" && geo.properties.name === "United Arab Emirates")
+                      )
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={isActive ? "url(#activeGradient)" : "#334155"}
+                          stroke="#1e293b"
+                          strokeWidth={0.8}
+                          filter={isActive ? "url(#glow)" : ""}
+                          style={{
+                            default: { 
+                              outline: "none",
+                              transition: "all 0.3s ease"
+                            },
+                            hover: { 
+                              fill: isActive ? "#34d399" : "#475569",
+                              outline: "none",
+                              transition: "all 0.3s ease",
+                              filter: isActive ? "url(#glow) brightness(1.2)" : ""
+                            },
+                            pressed: { outline: "none" }
+                          }}
+                        />
+                      )
+                    })
+                  }
+                </Geographies>
+                
+                {/* Enhanced Markers for each country */}
+                {countries.map((country, index) => (
+                  <Marker 
+                    key={index} 
+                    coordinates={country.coordinates}
+                    onMouseEnter={(e) => {
+                      setHoveredCountry(country)
+                      setTooltipPosition({ x: e.clientX, y: e.clientY })
+                    }}
+                    onMouseMove={(e) => {
+                      setTooltipPosition({ x: e.clientX, y: e.clientY })
+                    }}
+                    onMouseLeave={() => setHoveredCountry(null)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <g filter="url(#shadow)">
+                      {/* Outer glow ring */}
+                      <circle 
+                        r={16} 
+                        fill="#fbbf24" 
+                        fillOpacity={0.15}
+                        className="animate-ping"
                         style={{
-                          default: { outline: "none" },
-                          hover: { 
-                            fill: isActive ? "#059669" : "#d1d5db",
-                            outline: "none",
-                            transition: "all 0.3s"
-                          },
-                          pressed: { outline: "none" }
+                          animationDuration: '2s'
                         }}
                       />
-                    )
-                  })
-                }
-              </Geographies>
-              
-              {/* Markers for each country */}
-              {countries.map((country, index) => (
-                <Marker key={index} coordinates={country.coordinates}>
-                  <g>
-                    <circle 
-                      r={6} 
-                      fill="#ef4444" 
-                      stroke="#ffffff" 
-                      strokeWidth={2}
-                      className="animate-pulse"
-                    />
-                    <circle 
-                      r={10} 
-                      fill="#ef4444" 
-                      fillOpacity={0.2}
-                      className="animate-ping"
-                    />
-                  </g>
-                </Marker>
-              ))}
-            </ComposableMap>
+                      {/* Middle ring */}
+                      <circle 
+                        r={10} 
+                        fill="#f59e0b" 
+                        fillOpacity={0.4}
+                        className="animate-pulse"
+                      />
+                      {/* Main marker */}
+                      <circle 
+                        r={7} 
+                        fill="#f59e0b" 
+                        stroke="#ffffff" 
+                        strokeWidth={2.5}
+                        filter="url(#glow)"
+                      />
+                      {/* Inner highlight */}
+                      <circle 
+                        r={3} 
+                        fill="#fef3c7" 
+                        fillOpacity={0.8}
+                      />
+                      
+                      {/* Country name label */}
+                      <text
+                        textAnchor="middle"
+                        y={-15}
+                        style={{
+                          fontFamily: 'system-ui',
+                          fontSize: '10px',
+                          fontWeight: 'bold',
+                          fill: '#ffffff',
+                          stroke: '#1e293b',
+                          strokeWidth: '3px',
+                          paintOrder: 'stroke',
+                          pointerEvents: 'none'
+                        }}
+                      >
+                        {country.name}
+                      </text>
+                      
+                      {/* Flag emoji */}
+                      <text
+                        textAnchor="middle"
+                        y={-25}
+                        style={{
+                          fontSize: '16px',
+                          pointerEvents: 'none'
+                        }}
+                      >
+                        {country.flag}
+                      </text>
+                    </g>
+                  </Marker>
+                ))}
+              </ComposableMap>
+            </div>
+
+            {/* Legend */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-6 relative z-10">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <div className="w-6 h-6 rounded bg-gradient-to-br from-green-400 to-green-600" />
+                <span className="text-sm font-medium text-white">Active Markets</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <div className="w-6 h-6 rounded bg-slate-600" />
+                <span className="text-sm font-medium text-white">Other Countries</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 animate-pulse" />
+                <span className="text-sm font-medium text-white">Our Locations</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Countries List by Region */}

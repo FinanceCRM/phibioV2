@@ -7,9 +7,12 @@ const resources = {
   en: {
     translation: {
       nav: {
-        services: 'Services',
+        aboutUs: 'About Us',
         products: 'Products',
-        about: 'About Us',
+        services: 'Services',
+        media: 'Media',
+        publications: 'Publications',
+        career: 'Career',
         contact: 'Contact',
         language: 'Language',
       },
@@ -259,9 +262,12 @@ const resources = {
   de: {
     translation: {
       nav: {
-        services: 'Dienstleistungen',
+        aboutUs: 'Über Uns',
         products: 'Produkte',
-        about: 'Über uns',
+        services: 'Dienstleistungen',
+        media: 'Medien',
+        publications: 'Publikationen',
+        career: 'Karriere',
         contact: 'Kontakt',
         language: 'Sprache',
       },
@@ -511,9 +517,12 @@ const resources = {
   es: {
     translation: {
       nav: {
-        services: 'Servicios',
+        aboutUs: 'Sobre Nosotros',
         products: 'Productos',
-        about: 'Sobre nosotros',
+        services: 'Servicios',
+        media: 'Medios',
+        publications: 'Publicaciones',
+        career: 'Carrera',
         contact: 'Contacto',
         language: 'Idioma',
       },
@@ -763,9 +772,12 @@ const resources = {
   fr: {
     translation: {
       nav: {
-        services: 'Services',
+        aboutUs: 'À Propos',
         products: 'Produits',
-        about: 'À propos',
+        services: 'Services',
+        media: 'Médias',
+        publications: 'Publications',
+        career: 'Carrière',
         contact: 'Contact',
         language: 'Langue',
       },
@@ -1015,9 +1027,12 @@ const resources = {
   ru: {
     translation: {
       nav: {
-        services: 'Услуги',
+        aboutUs: 'О Нас',
         products: 'Продукты',
-        about: 'О нас',
+        services: 'Услуги',
+        media: 'Медиа',
+        publications: 'Публикации',
+        career: 'Карьера',
         contact: 'Контакты',
         language: 'Язык',
       },
@@ -1267,9 +1282,12 @@ const resources = {
   zh: {
     translation: {
       nav: {
-        services: '服务',
+        aboutUs: '关于我们',
         products: '产品',
-        about: '关于我们',
+        services: '服务',
+        media: '媒体',
+        publications: '出版物',
+        career: '职业',
         contact: '联系',
         language: '语言',
       },

@@ -101,10 +101,9 @@ const Navbar = () => {
 
   const navigationItems = [
     {
-      name: t('nav.services'),
-      href: '#services',
-      hasDropdown: true,
-      dropdownItems: servicesItems
+      name: t('nav.aboutUs'),
+      href: '#about',
+      hasDropdown: false
     },
     {
       name: t('nav.products'),
@@ -113,8 +112,24 @@ const Navbar = () => {
       dropdownItems: productsItems
     },
     {
-      name: t('nav.about'),
-      href: '#about',
+      name: t('nav.services'),
+      href: '#services',
+      hasDropdown: true,
+      dropdownItems: servicesItems
+    },
+    {
+      name: t('nav.media'),
+      href: '#media',
+      hasDropdown: false
+    },
+    {
+      name: t('nav.publications'),
+      href: '#publications',
+      hasDropdown: false
+    },
+    {
+      name: t('nav.career'),
+      href: '#career',
       hasDropdown: false
     },
     {

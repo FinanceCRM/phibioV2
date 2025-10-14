@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Zap, Droplets, Flower } from 'lucide-react'
 
@@ -117,10 +118,13 @@ const Products = () => {
                 </div>
 
                 {/* CTA */}
-                <button className="group/btn w-full mt-6 bg-gradient-to-r from-primary-600 to-primary-700 text-white py-3 px-6 rounded-full font-inter font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-200 flex items-center justify-center space-x-2">
+                <Link
+                  to={index === 0 ? '/products/intraocular' : index === 1 ? '/products/intraarticular' : '/products/dermal-fillers'}
+                  className="group/btn w-full mt-6 bg-gradient-to-r from-primary-600 to-primary-700 text-white py-3 px-6 rounded-full font-inter font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-200 flex items-center justify-center space-x-2"
+                >
                   <span>Learn More</span>
                   <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))}

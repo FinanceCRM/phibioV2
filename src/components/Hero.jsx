@@ -1,16 +1,27 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion as Motion } from 'framer-motion'
+import slide from '../assets/slide.jpeg'
 import { ArrowRight, Play } from 'lucide-react'
 
 const Hero = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-luxury-cream via-white to-beige-50">
+      {/* Background Image + Overlays */}
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${slide})` }}
+        />
+        {/* Soft gradient overlays to improve text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-luxury-cream/30 via-white/20 to-beige-50/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/25 via-transparent to-gold-900/20" />
+        {/* Extra top overlay to ensure navbar contrast */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/45 to-transparent" />
+
         {/* Floating Elements */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 pointer-events-none">
           {[...Array(20)].map((_, i) => (
-            <motion.div
+            <Motion.div
               key={i}
               className="absolute w-2 h-2 bg-primary-200/40 rounded-full"
               initial={{
@@ -30,21 +41,18 @@ const Hero = () => {
             />
           ))}
         </div>
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/5 via-transparent to-gold-900/5" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
           {/* Main Headline */}
-          <motion.h1
+          <Motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -53,10 +61,10 @@ const Hero = () => {
             Biotechnology
             <br />
             <span className="gradient-text">Inspired by Nature</span>
-          </motion.h1>
+          </Motion.h1>
 
           {/* Subtitle */}
-          <motion.p
+          <Motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -64,10 +72,10 @@ const Hero = () => {
           >
             Pioneering sustainable solutions that harness the power of nature to create 
             innovative biotechnology products for a healthier tomorrow.
-          </motion.p>
+          </Motion.p>
 
           {/* CTA Buttons */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -84,10 +92,10 @@ const Hero = () => {
               </div>
               <span className="font-inter font-semibold text-lg">Watch Our Story</span>
             </button>
-          </motion.div>
+          </Motion.div>
 
           {/* Features Pills */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -101,40 +109,40 @@ const Hero = () => {
                 {feature}
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <motion.div
+        <Motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="w-6 h-10 border-2 border-primary-600/60 rounded-full flex justify-center cursor-pointer hover:border-primary-600 transition-colors duration-300"
         >
-          <motion.div
+          <Motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             className="w-1.5 h-3 bg-primary-600 rounded-full mt-2"
           />
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
 
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 opacity-20">
-        <motion.div
+        <Motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="w-32 h-32 border border-primary-300/50 rounded-full"
         />
       </div>
       <div className="absolute bottom-20 right-10 opacity-20">
-        <motion.div
+        <Motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="w-24 h-24 border border-gold-300/50 rounded-full"
@@ -143,7 +151,7 @@ const Hero = () => {
       
       {/* Additional floating geometric shapes */}
       <div className="absolute top-1/4 right-20 opacity-10">
-        <motion.div
+        <Motion.div
           animate={{ 
             y: [0, -20, 0],
             rotate: [0, 180, 360] 
@@ -158,7 +166,7 @@ const Hero = () => {
       </div>
       
       <div className="absolute bottom-1/4 left-20 opacity-10">
-        <motion.div
+        <Motion.div
           animate={{ 
             y: [0, 15, 0],
             scale: [1, 1.1, 1]

@@ -1,25 +1,22 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Philosophy from './components/Philosophy'
-import Products from './components/Products'
-import Science from './components/Science'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Home from './pages/Home'
+import Intraocular from './pages/product/Intraocular'
+import Intraarticular from './pages/product/Intraarticular'
+import DermalFillers from './pages/product/DermalFillers'
 
 function App() {
   return (
     <div className="bg-white overflow-x-hidden">
       <Navbar />
-      <Hero />
-      <About />
-      <Philosophy />
-      <Products />
-      <Science />
-      <Testimonials />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products/intraocular" element={<Intraocular />} />
+        <Route path="/products/intraarticular" element={<Intraarticular />} />
+        <Route path="/products/dermal-fillers" element={<DermalFillers />} />
+      </Routes>
       <Footer />
     </div>
   )

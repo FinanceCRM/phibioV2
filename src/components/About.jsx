@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion as Motion } from 'framer-motion'
 import { Microscope, Leaf, Award, Users } from 'lucide-react'
 
 const About = () => {
@@ -14,27 +14,26 @@ const About = () => {
     <section id="about" className="py-24 bg-gradient-to-b from-white to-luxury-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">
-            Where Nature Meets
-            <span className="gradient-text"> Innovation</span>
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">About Us</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-            At Phibio, we bridge the gap between nature's wisdom and cutting-edge biotechnology,
-            creating sustainable solutions that honor both scientific excellence and environmental responsibility.
+            Established in 2012, our company has been committed since its inception to improving patient care through
+            advanced viscoelastic solutions. Placing patients and their well-being at the heart of every activity, we aim
+            to provide effective, science-based responce to people’s true needs in orthopaedics, ophthalmology, and
+            dermatology, enhancing mobility, vision, and natural beauty.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -42,25 +41,28 @@ const About = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">
-                Our Mission
-              </h3>
+              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">Our Commitment and Focus</h3>
               <p className="text-lg text-gray-700 font-inter leading-relaxed">
-                We harness the extraordinary power of natural compounds to develop breakthrough 
-                biotechnology solutions. Our research focuses on sustainable extraction methods 
-                and innovative applications that benefit both human health and our planet.
+                Over the years, the company have focused on Research and Development, production, and marketing of
+                hyaluronic acid-based medical devices and therapeutic solutions. Our portfolio is designed to support
+                healthcare professionals with reliable, high-quality products, offering tailored treatments based on
+                patient needs. By leveraging the scientifically proven benefits of HA, we create solutions that enhance
+                both functional recovery and aesthetic outcomes.
               </p>
             </div>
 
             <div>
-              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">
-                Our Approach
-              </h3>
+              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">Quality and Global Presence</h3>
               <p className="text-lg text-gray-700 font-inter leading-relaxed">
-                Through advanced molecular analysis and bio-mimetic processes, we unlock 
-                nature's secrets while maintaining the highest standards of environmental 
-                stewardship. Every product we develop represents years of meticulous research 
-                and unwavering commitment to quality.
+                Phibio head office in Frankfurt am Main, Germany and aim to expand its presence internationally. Fully
+                compliant with ISO standards and holding an MDR-approved CE certificates, we ensure that every product
+                meets the highest quality and safety standards.
+              </p>
+              <p className="text-lg text-gray-700 font-inter leading-relaxed mt-4">
+                Our work spans three major medical device areas: orthopaedics, ophthalmology, and dermatology. Through
+                innovation and dedication, and by harnessing the restorative and regenerative properties of hyaluronic
+                acid, we aim to improve patients’ quality of life with integrated therapeutic solutions, while supporting
+                healthcare professionals worldwide with reliable, effective treatments.
               </p>
             </div>
 
@@ -72,10 +74,10 @@ const About = () => {
                 Download Brochure
               </button>
             </div>
-          </motion.div>
+          </Motion.div>
 
           {/* Stats Grid */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -83,7 +85,7 @@ const About = () => {
             className="grid grid-cols-2 gap-6"
           >
             {stats.map((stat, index) => (
-              <motion.div
+              <Motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -100,13 +102,13 @@ const About = () => {
                 <div className="text-gray-600 font-inter font-medium">
                   {stat.label}
                 </div>
-              </motion.div>
+              </Motion.div>
             ))}
-          </motion.div>
+          </Motion.div>
         </div>
 
         {/* Additional Features */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -148,7 +150,7 @@ const About = () => {
               Award-winning commitment to the highest standards of quality and safety.
             </p>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   )

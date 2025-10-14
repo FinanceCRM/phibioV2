@@ -1,28 +1,31 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Shield, Heart, Globe, Leaf } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Philosophy = () => {
+  const { t } = useTranslation()
+  
   const principles = [
     {
       icon: Sparkles,
-      title: 'Innovation',
-      description: 'Pioneering new frontiers in biotechnology through relentless research and creativity.'
+      title: t('philosophy.principles.innovation'),
+      description: t('philosophy.principles.innovationDesc')
     },
     {
       icon: Shield,
-      title: 'Sustainability',
-      description: 'Protecting our planet through responsible practices and renewable solutions.'
+      title: t('philosophy.principles.sustainability'),
+      description: t('philosophy.principles.sustainabilityDesc')
     },
     {
       icon: Heart,
-      title: 'Well-being',
-      description: 'Enhancing human health and quality of life through nature-inspired products.'
+      title: t('philosophy.principles.wellbeing'),
+      description: t('philosophy.principles.wellbeingDesc')
     },
     {
       icon: Globe,
-      title: 'Global Impact',
-      description: 'Creating positive change that reaches communities around the world.'
+      title: t('philosophy.principles.globalImpact'),
+      description: t('philosophy.principles.globalImpactDesc')
     }
   ]
 
@@ -47,7 +50,7 @@ const Philosophy = () => {
                     <Leaf className="h-12 w-12 text-primary-700" />
                   </div>
                   <p className="text-primary-800 font-inter text-lg">
-                    "Nature is the ultimate laboratory"
+                    "{t('philosophy.quote')}"
                   </p>
                 </div>
               </div>
@@ -68,14 +71,12 @@ const Philosophy = () => {
           >
             <div>
               <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6 leading-tight">
-                Our Philosophy:
+                {t('philosophy.title')}
                 <br />
-                <span className="gradient-text">Science with Purpose</span>
+                <span className="gradient-text">{t('philosophy.subtitle')}</span>
               </h2>
               <p className="text-xl text-gray-600 font-inter leading-relaxed">
-                We believe that the most profound innovations arise when we listen to nature's 
-                wisdom and amplify it through human ingenuity. Our philosophy guides every 
-                decision, every discovery, and every solution we create.
+                {t('philosophy.description')}
               </p>
             </div>
 
@@ -105,7 +106,7 @@ const Philosophy = () => {
 
             <div className="pt-6">
               <button className="group bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-full font-inter font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center space-x-2">
-                <span>Explore Our Values</span>
+                <span>{t('philosophy.exploreBtn')}</span>
                 <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-200">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { FileDown, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail = ({
   title,
@@ -10,6 +11,8 @@ const ProductDetail = ({
   highlights = [],
   catalogUrl,
 }) => {
+  const { t } = useTranslation()
+  
   return (
     <section className="pt-24 pb-20 bg-gradient-to-b from-beige-50 to-white min-h-screen">
       <div className="relative">
@@ -19,7 +22,7 @@ const ProductDetail = ({
         {/* Back */}
         <div className="mb-6">
           <Link to="/" className="inline-flex items-center text-primary-700 hover:text-primary-800 font-inter">
-            <ArrowLeft className="h-4 w-4 mr-2" /> Back to Home
+            <ArrowLeft className="h-4 w-4 mr-2" /> {t('productDetail.backToHome') || 'Back to Home'}
           </Link>
         </div>
 
@@ -83,7 +86,7 @@ const ProductDetail = ({
                       className="inline-flex items-center space-x-2 text-primary-700 hover:text-primary-800 font-inter font-medium"
                     >
                       <FileDown className="h-4 w-4" />
-                      <span>Download Catalog</span>
+                      <span>{t('productDetail.downloadCatalog') || 'Download Catalog'}</span>
                     </a>
                   </div>
                 )}
@@ -107,7 +110,7 @@ const ProductDetail = ({
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-2xl font-inter font-semibold shadow-luxury hover:shadow-luxury-lg transition-all duration-300"
             >
               <FileDown className="h-5 w-5" />
-              <span>Download Full Catalog (PDF)</span>
+              <span>{t('productDetail.downloadFullCatalog') || 'Download Full Catalog (PDF)'}</span>
             </a>
             <div className="text-sm text-gray-500 mt-3">Upload your PDF to `public/catalogs/` and keep the same file name.</div>
           </motion.div>

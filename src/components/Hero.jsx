@@ -2,8 +2,11 @@ import React from 'react'
 import { motion as Motion } from 'framer-motion'
 import slide from '../assets/slide.jpeg'
 import { ArrowRight, Play } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Hero = () => {
+  const { t } = useTranslation()
+  
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image + Overlays */}
@@ -58,9 +61,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold text-primary-900 leading-tight"
           >
-            Biotechnology
+            {t('hero.mainTitle')}
             <br />
-            <span className="gradient-text">Inspired by Nature</span>
+            <span className="gradient-text">{t('hero.subTitle')}</span>
           </Motion.h1>
 
           {/* Subtitle */}
@@ -70,8 +73,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed"
           >
-            Pioneering sustainable solutions that harness the power of nature to create 
-            innovative biotechnology products for a healthier tomorrow.
+            {t('hero.description')}
           </Motion.p>
 
           {/* CTA Buttons */}
@@ -82,7 +84,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
           >
             <button className="group bg-gradient-to-r from-primary-600 via-primary-700 to-gold-600 text-white px-8 py-4 rounded-2xl font-inter font-semibold text-lg shadow-luxury hover:shadow-luxury-lg transform hover:scale-105 transition-all duration-300 flex items-center space-x-2">
-              <span>Discover Our Science</span>
+              <span>{t('hero.discoverBtn')}</span>
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
             
@@ -90,7 +92,7 @@ const Hero = () => {
               <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-luxury group-hover:shadow-luxury-lg group-hover:scale-105 transition-all duration-300">
                 <Play className="h-6 w-6 ml-1" />
               </div>
-              <span className="font-inter font-semibold text-lg">Watch Our Story</span>
+              <span className="font-inter font-semibold text-lg">{t('hero.watchBtn')}</span>
             </button>
           </Motion.div>
 
@@ -101,7 +103,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-wrap justify-center gap-4 pt-8"
           >
-            {['Sustainable Innovation', 'Bio-Technology', 'Natural Solutions'].map((feature, index) => (
+            {t('hero.features', { returnObjects: true }).map((feature, index) => (
               <div 
                 key={index}
                 className="px-6 py-3 bg-white/60 backdrop-blur-sm rounded-full border border-primary-100 text-primary-700 font-inter font-medium hover:bg-white/80 hover:scale-105 transition-all duration-300"

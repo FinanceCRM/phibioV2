@@ -1,22 +1,25 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Leaf, Mail, Phone, MapPin, ArrowRight, Twitter, Linkedin, Youtube, Instagram } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation()
+  
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Philosophy', href: '#philosophy' },
-    { name: 'Products', href: '#products' },
-    { name: 'Science', href: '#science' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('footer.links.aboutUs'), href: '#about' },
+    { name: t('footer.links.philosophy'), href: '#philosophy' },
+    { name: t('footer.links.products'), href: '#products' },
+    { name: t('footer.links.science'), href: '#science' },
+    { name: t('footer.links.contact'), href: '#contact' },
   ]
 
   const products = [
-    { name: 'BioExtract Pro', href: '#' },
-    { name: 'NatureTech Compounds', href: '#' },
-    { name: 'BioSynth Platform', href: '#' },
-    { name: 'Research Tools', href: '#' },
-    { name: 'Custom Solutions', href: '#' },
+    { name: t('footer.productLinks.bioExtract'), href: '#' },
+    { name: t('footer.productLinks.natureTech'), href: '#' },
+    { name: t('footer.productLinks.bioSynth'), href: '#' },
+    { name: t('footer.productLinks.researchTools'), href: '#' },
+    { name: t('footer.productLinks.customSolutions'), href: '#' },
   ]
 
   const socialLinks = [
@@ -40,27 +43,26 @@ const Footer = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-playfair font-bold text-gold-400 mb-4">
-                Stay Updated with Our Research
+                {t('footer.newsletterTitle')}
               </h3>
               <p className="text-lg text-beige-200 font-inter leading-relaxed">
-                Subscribe to our newsletter for the latest breakthroughs in biotechnology, 
-                research insights, and product updates.
+                {t('footer.newsletterDesc')}
               </p>
             </div>
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
                 <input
                   type="email"
-                  placeholder="Enter your email address"
+                  placeholder={t('footer.emailPlaceholder')}
                   className="flex-1 px-6 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-primary-700 text-beige-100 placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent font-inter"
                 />
                 <button className="bg-gradient-to-r from-gold-600 to-gold-700 text-primary-900 px-8 py-4 rounded-full font-inter font-semibold hover:from-gold-700 hover:to-gold-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2">
-                  <span>Subscribe</span>
+                  <span>{t('footer.subscribe')}</span>
                   <ArrowRight className="h-5 w-5" />
                 </button>
               </div>
               <p className="text-sm text-beige-300 font-inter">
-                No spam, unsubscribe at any time. We respect your privacy.
+                {t('footer.privacyText')}
               </p>
             </div>
           </div>
@@ -86,8 +88,7 @@ const Footer = () => {
                 </span>
               </div>
               <p className="text-beige-200 font-inter leading-relaxed mb-6">
-                Pioneering sustainable biotechnology solutions that harness 
-                nature's power for a healthier tomorrow.
+                {t('footer.companyDesc')}
               </p>
               
               {/* Contact Info */}
@@ -115,7 +116,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-playfair font-semibold text-gold-400 mb-6">
-                Quick Links
+                {t('footer.quickLinks')}
               </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
@@ -139,7 +140,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-playfair font-semibold text-gold-400 mb-6">
-                Products
+                {t('footer.productsTitle')}
               </h4>
               <ul className="space-y-3">
                 {products.map((product, index) => (
@@ -163,7 +164,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h4 className="text-lg font-playfair font-semibold text-gold-400 mb-6">
-                Connect With Us
+                {t('footer.connectWith')}
               </h4>
               
               {/* Social Links */}
@@ -183,7 +184,7 @@ const Footer = () => {
               {/* Certifications */}
               <div>
                 <h5 className="text-sm font-inter font-semibold text-gold-400 mb-3">
-                  Certifications
+                  {t('footer.certifications')}
                 </h5>
                 <div className="space-y-2 text-sm text-beige-300 font-inter">
                   <div>ISO 9001:2015</div>
@@ -206,17 +207,17 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-beige-300 font-inter text-sm">
-              © 2024 Phibio. All rights reserved.
+              {t('footer.copyright')}
             </div>
             <div className="flex space-x-6 text-sm font-inter">
               <a href="#" className="text-beige-300 hover:text-gold-400 transition-colors duration-200">
-                Privacy Policy
+                {t('footer.privacyPolicy')}
               </a>
               <a href="#" className="text-beige-300 hover:text-gold-400 transition-colors duration-200">
-                Terms of Service
+                {t('footer.termsOfService')}
               </a>
               <a href="#" className="text-beige-300 hover:text-gold-400 transition-colors duration-200">
-                Cookie Policy
+                {t('footer.cookiePolicy')}
               </a>
             </div>
           </div>

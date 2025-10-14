@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Testimonials = () => {
+  const { t } = useTranslation()
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const testimonials = [
@@ -52,12 +54,11 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">
-            What Our Partners
-            <span className="gradient-text"> Say</span>
+            {t('testimonials.title')}
+            <span className="gradient-text"> {t('testimonials.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-            Hear from leading researchers and institutions who trust Phibio 
-            for their most critical biotechnology projects.
+            {t('testimonials.description')}
           </p>
         </motion.div>
 
@@ -152,9 +153,9 @@ const Testimonials = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20"
         >
           {[
-            { number: '98%', label: 'Client Satisfaction' },
-            { number: '150+', label: 'Research Partners' },
-            { number: '50+', label: 'Countries Served' }
+            { number: '98%', label: t('testimonials.stats.satisfaction') },
+            { number: '150+', label: t('testimonials.stats.partners') },
+            { number: '50+', label: t('testimonials.stats.countries') }
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-2">

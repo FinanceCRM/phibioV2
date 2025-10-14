@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Contact = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,19 +29,19 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email Us',
+      title: t('contact.emailUs'),
       details: 'hello@phibio.com',
       subtitle: 'research@phibio.com'
     },
     {
       icon: Phone,
-      title: 'Call Us',
+      title: t('contact.callUs'),
       details: '+1 (555) 123-4567',
-      subtitle: 'Mon-Fri 9AM-6PM EST'
+      subtitle: t('contact.monFri')
     },
     {
       icon: MapPin,
-      title: 'Visit Us',
+      title: t('contact.visitUs'),
       details: '123 Innovation Drive',
       subtitle: 'BioTech Park, CA 94000'
     }
@@ -57,12 +59,11 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">
-            Let's Start a
-            <span className="gradient-text"> Conversation</span>
+            {t('contact.title')}
+            <span className="gradient-text"> {t('contact.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-            Ready to explore how Phibio can accelerate your research? 
-            Get in touch with our team of experts.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -76,14 +77,14 @@ const Contact = () => {
             className="bg-gradient-to-br from-primary-50 to-beige-50 rounded-3xl p-8"
           >
             <h3 className="text-2xl font-playfair font-bold text-primary-900 mb-6">
-              Send us a message
+              {t('contact.formTitle')}
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-inter font-medium text-gray-700 mb-2">
-                    Full Name *
+                    {t('contact.fullName')} *
                   </label>
                   <input
                     type="text"
@@ -98,7 +99,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-inter font-medium text-gray-700 mb-2">
-                    Email Address *
+                    {t('contact.email')} *
                   </label>
                   <input
                     type="email"
@@ -116,7 +117,7 @@ const Contact = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="company" className="block text-sm font-inter font-medium text-gray-700 mb-2">
-                    Organization
+                    {t('contact.organization')}
                   </label>
                   <input
                     type="text"
@@ -130,7 +131,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-inter font-medium text-gray-700 mb-2">
-                    Subject *
+                    {t('contact.subject')} *
                   </label>
                   <select
                     id="subject"
@@ -140,19 +141,19 @@ const Contact = () => {
                     required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200 font-inter"
                   >
-                    <option value="">Select a subject</option>
-                    <option value="research">Research Collaboration</option>
-                    <option value="products">Product Inquiry</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="support">Technical Support</option>
-                    <option value="other">Other</option>
+                    <option value="">{t('contact.selectSubject')}</option>
+                    <option value="research">{t('contact.researchCollab')}</option>
+                    <option value="products">{t('contact.productInquiry')}</option>
+                    <option value="partnership">{t('contact.partnership')}</option>
+                    <option value="support">{t('contact.techSupport')}</option>
+                    <option value="other">{t('contact.other')}</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-inter font-medium text-gray-700 mb-2">
-                  Message *
+                  {t('contact.message')} *
                 </label>
                 <textarea
                   id="message"
@@ -170,7 +171,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white py-4 px-6 rounded-lg font-inter font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center space-x-2"
               >
-                <span>Send Message</span>
+                <span>{t('contact.sendBtn')}</span>
                 <Send className="h-5 w-5" />
               </button>
             </form>
@@ -186,11 +187,10 @@ const Contact = () => {
           >
             <div>
               <h3 className="text-2xl font-playfair font-bold text-primary-900 mb-6">
-                Get in touch
+                {t('contact.getInTouch')}
               </h3>
               <p className="text-lg text-gray-600 font-inter leading-relaxed mb-8">
-                Our team of scientists and biotechnology experts is ready to discuss 
-                your research needs and explore collaboration opportunities.
+                {t('contact.getInTouchDesc')}
               </p>
             </div>
 
@@ -234,11 +234,10 @@ const Contact = () => {
               className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-6 text-white"
             >
               <h4 className="text-lg font-playfair font-semibold mb-2">
-                Quick Response Guarantee
+                {t('contact.responseTitle')}
               </h4>
               <p className="font-inter">
-                We typically respond to all inquiries within 24 hours. 
-                For urgent matters, please call us directly.
+                {t('contact.responseText')}
               </p>
             </motion.div>
           </motion.div>

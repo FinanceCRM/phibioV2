@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { 
   Menu, 
   X, 
@@ -19,10 +21,12 @@ import {
 } from 'lucide-react'
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation()
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,26 +84,41 @@ const Navbar = () => {
     }
   ]
 
+  const languages = [
+    { code: 'en', label: 'English', flag: '🇺🇸' },
+    { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+    { code: 'es', label: 'Español', flag: '🇪🇸' },
+    { code: 'fr', label: 'Français', flag: '🇫🇷' },
+    { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+    { code: 'zh', label: '中文', flag: '🇨🇳' }
+  ]
+
+  const handleLanguageChange = (languageCode) => {
+    i18n.changeLanguage(languageCode)
+    localStorage.setItem('i18nextLng', languageCode)
+    setIsLanguageDropdownOpen(false)
+  }
+
   const navigationItems = [
     {
-      name: 'Services',
+      name: t('nav.services'),
       href: '#services',
       hasDropdown: true,
       dropdownItems: servicesItems
     },
     {
-      name: 'Products',
+      name: t('nav.products'),
       href: '#products',
       hasDropdown: true,
       dropdownItems: productsItems
     },
     {
-      name: 'About Us',
+      name: t('nav.about'),
       href: '#about',
       hasDropdown: false
     },
     {
-      name: 'Contact',
+      name: t('nav.contact'),
       href: '#contact',
       hasDropdown: false
     }
@@ -112,6 +131,30 @@ const Navbar = () => {
   const handleMouseLeave = () => {
     setActiveDropdown(null)
   }
+
+  // Close language dropdown when other dropdowns open
+  useEffect(() => {
+    if (activeDropdown) {
+      setIsLanguageDropdownOpen(false)
+    }
+  }, [activeDropdown])
+
+  // Close language dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isLanguageDropdownOpen && !event.target.closest('.language-dropdown')) {
+        setIsLanguageDropdownOpen(false)
+      }
+    }
+    
+    if (isLanguageDropdownOpen) {
+      document.addEventListener('click', handleClickOutside)
+    }
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [isLanguageDropdownOpen])
 
   const isHome = location.pathname === '/'
   const showSolid = isScrolled || !isHome
@@ -214,11 +257,11 @@ const Navbar = () => {
                       <div className="mt-6 pt-6 border-t border-gray-200/50">
                         <div className="flex items-center justify-between">
                           <div className="text-sm text-slate-500 font-inter">
-                            Need help choosing?
+                            {t('dropdown.needHelp')}
                           </div>
                           <button className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-inter font-medium text-sm transition-colors duration-300 hover:underline underline-offset-4">
                             <Mail className="h-4 w-4" />
-                            <span>Contact Expert</span>
+                            <span>{t('dropdown.contactExpert')}</span>
                           </button>
                         </div>
                       </div>
@@ -228,22 +271,33 @@ const Navbar = () => {
               </div>
             ))}
 
-            {/* CTA Button */}
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 }}
-              className={`ml-6 px-6 py-3 rounded-xl font-inter font-semibold shadow-md transition-colors duration-200 ${
-                showSolid
-                  ? 'bg-primary-600 text-white hover:bg-primary-700'
-                  : 'bg-transparent text-white hover:bg-white/10 border border-white/20'
-              }`}
-                          >
-                <span className="flex items-center space-x-2">
-                <span>Get Started</span>
-                                  <ArrowRight className="h-4 w-4" />
-              </span>
-            </motion.button>
+            {/* Language (Desktop) - click dropdown */}
+            <div className="relative ml-4 language-dropdown">
+              <div 
+                className={`flex items-center gap-2 px-2 py-1 rounded-md cursor-pointer ${showSolid ? 'text-slate-700' : 'text-white'}`}
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+              >
+                <span className="font-inter">{t('nav.language')}</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''} ${showSolid ? 'text-inherit' : 'text-white'}`} />
+              </div>
+              {isLanguageDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden z-50">
+                  <ul className="py-2">
+                    {languages.map((lng) => (
+                      <li key={lng.code}>
+                        <div 
+                          className="flex items-center gap-3 px-4 py-2 text-slate-700 hover:bg-gray-50 cursor-pointer"
+                          onClick={() => handleLanguageChange(lng.code)}
+                        >
+                          <span className="text-lg">{lng.flag}</span>
+                          <span className="font-inter">{lng.label}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -271,7 +325,7 @@ const Navbar = () => {
             className="lg:hidden bg-white border-t border-gray-200/30 shadow-luxury-lg overflow-hidden"
           >
             <div className="px-4 py-6 space-y-6 max-h-screen overflow-y-auto">
-              {navigationItems.map((item, index) => (
+              {navigationItems.map((item) => (
                 <div key={item.name} className="space-y-3">
                   <div className="flex items-center justify-between">
                     <a
@@ -314,9 +368,25 @@ const Navbar = () => {
               ))}
               
               <div className="pt-6 border-t border-gray-200/50">
-                <button className="w-full bg-gradient-to-r from-primary-600 to-gold-600 text-white px-6 py-4 rounded-2xl font-inter font-semibold shadow-luxury hover:shadow-luxury-lg transition-all duration-300">
-                  Get Started
-                </button>
+                {/* Languages (Mobile) - collapsible dropdown, no button styling */}
+                <details className="group">
+                  <summary className="list-none flex items-center justify-between px-2 py-2 cursor-pointer select-none">
+                    <span className="text-slate-800 font-inter font-semibold">{t('nav.language')}</span>
+                    <ChevronDown className="h-5 w-5 text-slate-500 transition-transform duration-200 group-open:rotate-180" />
+                  </summary>
+                  <ul className="mt-2 space-y-2">
+                    {languages.map((lng) => (
+                      <li 
+                        key={lng.code} 
+                        className="flex items-center gap-3 px-2 py-2 text-slate-700 cursor-pointer hover:bg-gray-50 rounded-md"
+                        onClick={() => handleLanguageChange(lng.code)}
+                      >
+                        <span className="text-2xl leading-none">{lng.flag}</span>
+                        <span className="font-inter">{lng.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </div>
 
               {/* Mobile Contact Info */}

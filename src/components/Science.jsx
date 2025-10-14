@@ -1,31 +1,34 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Beaker, Dna, Atom, TrendingUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Science = () => {
+  const { t } = useTranslation()
+  
   const research = [
     {
       icon: Dna,
-      title: 'Molecular Biology',
-      description: 'Advanced genetic engineering and protein synthesis for therapeutic applications.',
+      title: t('science.areas.molecular'),
+      description: t('science.areas.molecularDesc'),
       progress: 85
     },
     {
       icon: Beaker,
-      title: 'Chemical Analysis',
-      description: 'Cutting-edge spectroscopy and chromatography for compound identification.',
+      title: t('science.areas.chemical'),
+      description: t('science.areas.chemicalDesc'),
       progress: 92
     },
     {
       icon: Atom,
-      title: 'Nanotechnology',
-      description: 'Nano-scale delivery systems for enhanced bioavailability and targeting.',
+      title: t('science.areas.nano'),
+      description: t('science.areas.nanoDesc'),
       progress: 78
     },
     {
       icon: TrendingUp,
-      title: 'Data Science',
-      description: 'AI-driven analysis of biological patterns and predictive modeling.',
+      title: t('science.areas.dataScience'),
+      description: t('science.areas.dataScienceDesc'),
       progress: 88
     }
   ]
@@ -42,12 +45,11 @@ const Science = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">
-            The Science Behind
-            <span className="gradient-text"> Innovation</span>
+            {t('science.title')}
+            <span className="gradient-text"> {t('science.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-            Our multidisciplinary research approach combines traditional botanical knowledge 
-            with cutting-edge technology to unlock nature's most powerful compounds.
+            {t('science.description')}
           </p>
         </motion.div>
 
@@ -77,7 +79,7 @@ const Science = () => {
                   {/* Progress Bar */}
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-500 font-inter">Research Progress</span>
+                      <span className="text-gray-500 font-inter">{t('science.researchProgress')}</span>
                       <span className="text-primary-600 font-inter font-semibold">{area.progress}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
@@ -114,20 +116,19 @@ const Science = () => {
           <div className="relative z-10">
             <div className="text-center mb-12">
               <h3 className="text-3xl md:text-4xl font-playfair font-bold mb-4">
-                Our Research Facilities
+                {t('science.facilitiesTitle')}
               </h3>
               <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-                State-of-the-art laboratories equipped with the latest technology 
-                for breakthrough discoveries in biotechnology.
+                {t('science.facilitiesDesc')}
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { number: '12', label: 'Research Labs' },
-                { number: '50K+', label: 'Compounds Analyzed' },
-                { number: '200+', label: 'Research Papers' },
-                { number: '15+', label: 'Patents Filed' }
+                { number: '12', label: t('science.stats.labs') },
+                { number: '50K+', label: t('science.stats.compounds') },
+                { number: '200+', label: t('science.stats.papers') },
+                { number: '15+', label: t('science.stats.patents') }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -158,7 +159,7 @@ const Science = () => {
           className="text-center mt-16"
         >
           <button className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-full font-inter font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
-            Explore Our Research
+{t('science.exploreBtn')}
           </button>
         </motion.div>
       </div>

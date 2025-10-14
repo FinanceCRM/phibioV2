@@ -1,13 +1,16 @@
 import React from 'react'
 import { motion as Motion } from 'framer-motion'
 import { Microscope, Leaf, Award, Users } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const About = () => {
+  const { t } = useTranslation()
+  
   const stats = [
-    { icon: Microscope, number: '15+', label: 'Years of Research' },
-    { icon: Leaf, number: '500+', label: 'Plant Extracts Studied' },
-    { icon: Award, number: '25+', label: 'Awards Won' },
-    { icon: Users, number: '100+', label: 'Scientists & Researchers' },
+    { icon: Microscope, number: '15+', label: t('about.stats.yearsResearch') },
+    { icon: Leaf, number: '500+', label: t('about.stats.plantExtracts') },
+    { icon: Award, number: '25+', label: t('about.stats.awardsWon') },
+    { icon: Users, number: '100+', label: t('about.stats.scientists') },
   ]
 
   return (
@@ -21,12 +24,9 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">About Us</h2>
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">{t('about.title')}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-            Established in 2012, our company has been committed since its inception to improving patient care through
-            advanced viscoelastic solutions. Placing patients and their well-being at the heart of every activity, we aim
-            to provide effective, science-based responce to people’s true needs in orthopaedics, ophthalmology, and
-            dermatology, enhancing mobility, vision, and natural beauty.
+            {t('about.description')}
           </p>
         </Motion.div>
 
@@ -41,37 +41,28 @@ const About = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">Our Commitment and Focus</h3>
+              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">{t('about.commitment')}</h3>
               <p className="text-lg text-gray-700 font-inter leading-relaxed">
-                Over the years, the company have focused on Research and Development, production, and marketing of
-                hyaluronic acid-based medical devices and therapeutic solutions. Our portfolio is designed to support
-                healthcare professionals with reliable, high-quality products, offering tailored treatments based on
-                patient needs. By leveraging the scientifically proven benefits of HA, we create solutions that enhance
-                both functional recovery and aesthetic outcomes.
+                {t('about.commitmentText')}
               </p>
             </div>
 
             <div>
-              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">Quality and Global Presence</h3>
+              <h3 className="text-3xl font-playfair font-semibold text-primary-900 mb-4">{t('about.quality')}</h3>
               <p className="text-lg text-gray-700 font-inter leading-relaxed">
-                Phibio head office in Frankfurt am Main, Germany and aim to expand its presence internationally. Fully
-                compliant with ISO standards and holding an MDR-approved CE certificates, we ensure that every product
-                meets the highest quality and safety standards.
+                {t('about.qualityText')}
               </p>
               <p className="text-lg text-gray-700 font-inter leading-relaxed mt-4">
-                Our work spans three major medical device areas: orthopaedics, ophthalmology, and dermatology. Through
-                innovation and dedication, and by harnessing the restorative and regenerative properties of hyaluronic
-                acid, we aim to improve patients’ quality of life with integrated therapeutic solutions, while supporting
-                healthcare professionals worldwide with reliable, effective treatments.
+                {t('about.qualityText2')}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-6">
               <button className="bg-gradient-to-r from-primary-600 via-primary-700 to-gold-600 text-white px-8 py-3 rounded-2xl font-inter font-semibold shadow-luxury hover:shadow-luxury-lg transform hover:scale-105 transition-all duration-300">
-                Learn More
+                {t('about.learnMore')}
               </button>
               <button className="text-primary-700 font-inter font-semibold hover:text-primary-800 transition-colors duration-300 underline underline-offset-4 hover:underline-offset-8">
-                Download Brochure
+                {t('about.downloadBrochure')}
               </button>
             </div>
           </Motion.div>
@@ -120,10 +111,10 @@ const About = () => {
               <Leaf className="h-10 w-10 text-white" />
             </div>
             <h4 className="text-xl font-playfair font-semibold text-primary-900 mb-3">
-              Sustainable Practices
+              {t('about.features.sustainable')}
             </h4>
             <p className="text-gray-600 font-inter leading-relaxed">
-              Every process is designed with environmental responsibility at its core.
+              {t('about.features.sustainableText')}
             </p>
           </div>
 
@@ -132,10 +123,10 @@ const About = () => {
               <Microscope className="h-10 w-10 text-white" />
             </div>
             <h4 className="text-xl font-playfair font-semibold text-primary-900 mb-3">
-              Advanced Research
+              {t('about.features.research')}
             </h4>
             <p className="text-gray-600 font-inter leading-relaxed">
-              Cutting-edge laboratory facilities and state-of-the-art equipment.
+              {t('about.features.researchText')}
             </p>
           </div>
 
@@ -144,10 +135,10 @@ const About = () => {
               <Award className="h-10 w-10 text-white" />
             </div>
             <h4 className="text-xl font-playfair font-semibold text-primary-900 mb-3">
-              Quality Excellence
+              {t('about.features.quality')}
             </h4>
             <p className="text-gray-600 font-inter leading-relaxed">
-              Award-winning commitment to the highest standards of quality and safety.
+              {t('about.features.qualityText')}
             </p>
           </div>
         </Motion.div>

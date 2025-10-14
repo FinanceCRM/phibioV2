@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next'
 import { 
   Menu, 
   X, 
-  Leaf, 
   ChevronDown,
   Microscope,
   FlaskConical,
@@ -19,6 +18,7 @@ import {
   Mail,
   Phone
 } from 'lucide-react'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const { t, i18n } = useTranslation()
@@ -195,19 +195,20 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex items-center space-x-3 z-50"
-          >
-            <div className="w-11 h-11 bg-gradient-to-br from-primary-600 via-primary-700 to-gold-600 rounded-2xl flex items-center justify-center shadow-luxury">
-              <Leaf className="h-6 w-6 text-white" />
-            </div>
-            <span className={`text-2xl font-playfair font-bold transition-colors duration-300 ${showSolid ? 'text-slate-800' : 'text-white drop-shadow-md'}`}>
-              Phibio
-            </span>
-          </motion.div>
+          <Link to="/">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center z-50 cursor-pointer"
+            >
+              <img 
+                src={logo} 
+                alt="Phibio Logo" 
+                className="h-16 w-auto object-contain"
+              />
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">

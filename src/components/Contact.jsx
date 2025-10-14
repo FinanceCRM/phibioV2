@@ -30,20 +30,20 @@ const Contact = () => {
     {
       icon: Mail,
       title: t('contact.emailUs'),
-      details: 'hello@phibio.com',
-      subtitle: 'research@phibio.com'
+      details: 'info@phibio.de',
+      subtitle: ''
     },
     {
       icon: Phone,
       title: t('contact.callUs'),
-      details: '+1 (555) 123-4567',
-      subtitle: t('contact.monFri')
+      details: '069 40767397',
+      subtitle: '09:00-17:00 Mon-Fri'
     },
     {
       icon: MapPin,
       title: t('contact.visitUs'),
-      details: '123 Innovation Drive',
-      subtitle: 'BioTech Park, CA 94000'
+      details: 'Klingerstr. 24',
+      subtitle: '60313 Frankfurt am Main'
     }
   ]
 
@@ -242,6 +242,80 @@ const Contact = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Map Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          {/* Map Header */}
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-600 to-gold-600 rounded-full mb-4">
+              <MapPin className="h-8 w-8 text-white" />
+            </div>
+            <h3 className="text-3xl md:text-4xl font-playfair font-bold text-primary-900 mb-4">
+              {t('contact.findUs')}
+            </h3>
+            <p className="text-lg text-gray-600 font-inter max-w-2xl mx-auto">
+              Visit our headquarters in the heart of Frankfurt am Main, Germany
+            </p>
+          </div>
+
+          {/* Map Container with Gradient Border */}
+          <div className="relative group">
+            {/* Gradient Border Effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 via-gold-500 to-primary-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+            
+            {/* Map Card */}
+            <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl">
+              {/* Address Banner */}
+              <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-6">
+                <div className="flex items-center justify-center space-x-3 text-white">
+                  <MapPin className="h-6 w-6 flex-shrink-0" />
+                  <div className="text-center">
+                    <p className="font-inter font-semibold text-lg">Klingerstraße 24</p>
+                    <p className="font-inter text-sm opacity-90">60313 Frankfurt am Main, Germany</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map */}
+              <div className="relative w-full h-[500px] bg-gray-100">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.4757384716616!2d8.682567776860988!3d50.11355771154698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0ea3c71e940f%3A0x8c8a5f7c3e3d9a5c!2sKlingerstra%C3%9Fe%2024%2C%2060313%20Frankfurt%20am%20Main%2C%20Germany!5e0!3m2!1sen!2s!4v1697302800000!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Phibio Location - Frankfurt am Main"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+
+              {/* Bottom Info Bar */}
+              <div className="bg-gradient-to-r from-beige-50 to-primary-50 px-8 py-4 border-t border-gray-100">
+                <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600 font-inter">
+                  <div className="flex items-center space-x-2">
+                    <Phone className="h-4 w-4 text-primary-600" />
+                    <span>069 40767397</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Mail className="h-4 w-4 text-primary-600" />
+                    <span>info@phibio.de</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <span className="font-semibold text-primary-700">Mon-Fri: 09:00-17:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -100,6 +100,7 @@ const resources = {
         monFri: 'Mon-Fri 9AM-6PM EST',
         responseTitle: 'Quick Response Guarantee',
         responseText: 'We typically respond to all inquiries within 24 hours. For urgent matters, please call us directly.',
+        findUs: 'Find Us on the Map',
       },
       footer: {
         newsletterTitle: 'Stay Updated with Our Research',
@@ -388,6 +389,7 @@ const resources = {
         monFri: 'Mo-Fr 9-18 Uhr',
         responseTitle: 'Schnelle Antwortgarantie',
         responseText: 'Wir antworten in der Regel innerhalb von 24 Stunden auf alle Anfragen.',
+        findUs: 'Finden Sie uns auf der Karte',
       },
       footer: {
         newsletterTitle: 'Bleiben Sie auf dem Laufenden',
@@ -676,6 +678,7 @@ const resources = {
         monFri: 'Lun-Vie 9AM-6PM EST',
         responseTitle: 'Garantía de respuesta rápida',
         responseText: 'Normalmente respondemos a todas las consultas dentro de las 24 horas.',
+        findUs: 'Encuéntranos en el Mapa',
       },
       footer: {
         newsletterTitle: 'Manténgase actualizado con nuestra investigación',
@@ -964,6 +967,7 @@ const resources = {
         monFri: 'Lun-Ven 9h-18h EST',
         responseTitle: 'Garantie de réponse rapide',
         responseText: 'Nous répondons généralement à toutes les demandes dans les 24 heures.',
+        findUs: 'Trouvez-nous sur la Carte',
       },
       footer: {
         newsletterTitle: 'Restez informé de nos recherches',
@@ -1252,6 +1256,7 @@ const resources = {
         monFri: 'Пн-Пт 9:00-18:00 EST',
         responseTitle: 'Гарантия быстрого ответа',
         responseText: 'Мы обычно отвечаем на все запросы в течение 24 часов.',
+        findUs: 'Найдите нас на карте',
       },
       footer: {
         newsletterTitle: 'Будьте в курсе наших исследований',
@@ -1540,6 +1545,7 @@ const resources = {
         monFri: '周一至周五 9AM-6PM EST',
         responseTitle: '快速响应保证',
         responseText: '我们通常在24小时内回复所有咨询。',
+        findUs: '在地图上找到我们',
       },
       footer: {
         newsletterTitle: '了解我们的最新研究',

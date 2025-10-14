@@ -103,39 +103,46 @@ const Navbar = () => {
     {
       name: t('nav.aboutUs'),
       href: '#about',
-      hasDropdown: false
+      hasDropdown: false,
+      isRoute: false
     },
     {
       name: t('nav.products'),
       href: '#products',
       hasDropdown: true,
-      dropdownItems: productsItems
+      dropdownItems: productsItems,
+      isRoute: false
     },
     {
       name: t('nav.services'),
       href: '#services',
       hasDropdown: true,
-      dropdownItems: servicesItems
+      dropdownItems: servicesItems,
+      isRoute: false
     },
     {
       name: t('nav.media'),
       href: '#media',
-      hasDropdown: false
+      hasDropdown: false,
+      isRoute: false
     },
     {
       name: t('nav.publications'),
-      href: '#publications',
-      hasDropdown: false
+      href: '/publications',
+      hasDropdown: false,
+      isRoute: true
     },
     {
       name: t('nav.career'),
       href: '#career',
-      hasDropdown: false
+      hasDropdown: false,
+      isRoute: false
     },
     {
       name: t('nav.contact'),
       href: '#contact',
-      hasDropdown: false
+      hasDropdown: false,
+      isRoute: false
     }
   ]
 
@@ -210,26 +217,43 @@ const Navbar = () => {
                 onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.name)}
                 onMouseLeave={handleMouseLeave}
               >
-                <motion.a
-                  href={item.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter transition-colors duration-200 ${
-                    showSolid
-                      ? 'text-slate-700 font-medium hover:text-primary-600 hover:bg-gray-100'
-                      : 'text-white font-semibold drop-shadow hover:text-white bg-transparent hover:bg-white/10'
-                  }`}
-                                  >
+                {item.isRoute ? (
+                  <Link to={item.href}>
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter transition-colors duration-200 ${
+                        showSolid
+                          ? 'text-slate-700 font-medium hover:text-primary-600 hover:bg-gray-100'
+                          : 'text-white font-semibold drop-shadow hover:text-white bg-transparent hover:bg-white/10'
+                      }`}
+                    >
+                      <span>{item.name}</span>
+                    </motion.div>
+                  </Link>
+                ) : (
+                  <motion.a
+                    href={item.href}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter transition-colors duration-200 ${
+                      showSolid
+                        ? 'text-slate-700 font-medium hover:text-primary-600 hover:bg-gray-100'
+                        : 'text-white font-semibold drop-shadow hover:text-white bg-transparent hover:bg-white/10'
+                    }`}
+                  >
                     <span>{item.name}</span>
-                  {item.hasDropdown && (
-                                          <ChevronDown 
+                    {item.hasDropdown && (
+                      <ChevronDown 
                         className={`h-4 w-4 transition-transform duration-200 ${
                           activeDropdown === item.name ? 'rotate-180' : ''
                         } ${showSolid ? 'text-inherit' : 'text-white drop-shadow'}`} 
                       />
-                  )}
-                </motion.a>
+                    )}
+                  </motion.a>
+                )}
 
                 {/* Mega Menu Dropdown */}
                 <AnimatePresence>
@@ -343,13 +367,23 @@ const Navbar = () => {
               {navigationItems.map((item) => (
                 <div key={item.name} className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <a
-                      href={item.href}
-                      className="text-slate-800 font-inter font-semibold text-lg hover:text-primary-600 transition-colors duration-300"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </a>
+                    {item.isRoute ? (
+                      <Link
+                        to={item.href}
+                        className="text-slate-800 font-inter font-semibold text-lg hover:text-primary-600 transition-colors duration-300"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="text-slate-800 font-inter font-semibold text-lg hover:text-primary-600 transition-colors duration-300"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )}
                     {item.hasDropdown && (
                       <ChevronDown className="h-5 w-5 text-slate-400" />
                     )}

@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Intraocular from './pages/product/Intraocular'
 import Intraarticular from './pages/product/Intraarticular'
 import DermalFillers from './pages/product/DermalFillers'
+import Publications from './pages/Publications'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products/intraocular" element={<Intraocular />} />
         <Route path="/products/intraarticular" element={<Intraarticular />} />
         <Route path="/products/dermal-fillers" element={<DermalFillers />} />
+        <Route path="/publications" element={<Publications />} />
       </Routes>
       <Footer />
     </div>

@@ -95,23 +95,6 @@ const Hero = () => {
               <span className="font-inter font-semibold text-lg">{t('hero.watchBtn')}</span>
             </button>
           </Motion.div>
-
-          {/* Features Pills */}
-          <Motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap justify-center gap-4 pt-8"
-          >
-            {t('hero.features', { returnObjects: true }).map((feature, index) => (
-              <div 
-                key={index}
-                className="px-6 py-3 bg-white/60 backdrop-blur-sm rounded-full border border-primary-100 text-primary-700 font-inter font-medium hover:bg-white/80 hover:scale-105 transition-all duration-300"
-              >
-                {feature}
-              </div>
-            ))}
-          </Motion.div>
         </Motion.div>
       </div>
 

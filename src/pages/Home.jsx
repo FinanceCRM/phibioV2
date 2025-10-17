@@ -3,8 +3,6 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Philosophy from '../components/Philosophy'
 import Products from '../components/Products'
-import Science from '../components/Science'
-import Testimonials from '../components/Testimonials'
 import Contact from '../components/Contact'
 
 const Home = () => {
@@ -14,8 +12,6 @@ const Home = () => {
       <About />
       <Philosophy />
       <Products />
-      <Science />
-      <Testimonials />
       <Contact />
       {/* Footer rendered globally in App */}
     </div>

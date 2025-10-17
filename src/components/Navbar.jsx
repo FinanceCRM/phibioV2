@@ -41,25 +41,25 @@ const Navbar = () => {
       icon: FlaskConical,
       title: 'R&D Services',
       description: 'Advanced research and development solutions for biotechnology innovation',
-      href: '#rd-services'
+      href: '/services/rd-services'
     },
     {
       icon: Package,
       title: 'Cleanroom Packing',
       description: 'Sterile packaging solutions in controlled cleanroom environments',
-      href: '#cleanroom-packing'
+      href: '/services/cleanroom-packing'
     },
     {
       icon: Building2,
       title: 'Cleanroom & Laboratory Solutions',
       description: 'Complete laboratory setup and cleanroom facility management',
-      href: '#laboratory-solutions'
+      href: '/services/laboratory-solutions'
     },
     {
       icon: Microscope,
       title: 'Contract Manufacturing',
       description: 'End-to-end manufacturing services for biotech products',
-      href: '#contract-manufacturing'
+      href: '/services/contract-manufacturing'
     }
   ]
 
@@ -86,12 +86,12 @@ const Navbar = () => {
 
   const languages = [
     { code: 'en', label: 'English', flag: '🇺🇸' },
-    { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
     { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
     { code: 'es', label: 'Español', flag: '🇪🇸' },
     { code: 'fr', label: 'Français', flag: '🇫🇷' },
-    { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-    { code: 'zh', label: '中文', flag: '🇨🇳' }
+    { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
+    { code: 'zh', label: '中文', flag: '🇨🇳' },
+    { code: 'ru', label: 'Русский', flag: '🇷🇺' }
   ]
 
   const handleLanguageChange = (languageCode) => {

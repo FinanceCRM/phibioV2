@@ -1,6 +1,6 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { Leaf, Mail, Phone, MapPin, ArrowRight, Twitter, Linkedin, Youtube, Instagram } from 'lucide-react'
+import { motion as Motion } from 'framer-motion'
+import { Leaf, Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
@@ -15,25 +15,21 @@ const Footer = () => {
   ]
 
   const products = [
-    { name: t('footer.productLinks.bioExtract'), href: '#' },
-    { name: t('footer.productLinks.natureTech'), href: '#' },
-    { name: t('footer.productLinks.bioSynth'), href: '#' },
-    { name: t('footer.productLinks.researchTools'), href: '#' },
-    { name: t('footer.productLinks.customSolutions'), href: '#' },
+    { name: 'Intraocular Viscoelastics', href: '#products' },
+    { name: 'Intraarticular Viscoelastics', href: '#products' },
+    { name: 'Dermal Fillers', href: '#products' },
   ]
 
   const socialLinks = [
-    { icon: Twitter, href: '#', name: 'Twitter' },
-    { icon: Linkedin, href: '#', name: 'LinkedIn' },
-    { icon: Youtube, href: '#', name: 'YouTube' },
-    { icon: Instagram, href: '#', name: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/phibiotechnology/', name: 'Instagram' },
+    { icon: Linkedin, href: 'https://de.linkedin.com/company/phibio', name: 'LinkedIn' },
   ]
 
   return (
     <footer className="bg-gradient-to-b from-primary-900 to-primary-950 text-beige-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter Section */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -66,13 +62,13 @@ const Footer = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Main Footer Content */}
         <div className="py-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Company Info */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -106,10 +102,10 @@ const Footer = () => {
                   <span className="text-beige-200 font-inter">BioTech Park, CA 94000</span>
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
 
             {/* Quick Links */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -130,10 +126,10 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Motion.div>
 
             {/* Products */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -154,10 +150,10 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Motion.div>
 
             {/* Social Media & Certifications */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -187,18 +183,19 @@ const Footer = () => {
                   {t('footer.certifications')}
                 </h5>
                 <div className="space-y-2 text-sm text-beige-300 font-inter">
+                  <div>MDR Approved</div>
                   <div>ISO 9001:2015</div>
+                  <div>ISO 13485:2016</div>
                   <div>GMP Certified</div>
-                  <div>Organic Certified</div>
-                  <div>USDA Approved</div>
+                  <div>Free Sale Certificates</div>
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -221,7 +218,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </footer>
   )

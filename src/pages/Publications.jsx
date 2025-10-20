@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { 
-  ComposableMap, 
-  Geographies, 
-  Geography, 
-  Marker 
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker
 } from 'react-simple-maps'
-import { 
-  Globe, 
-  Building2, 
-  Users, 
-  TrendingUp, 
+import {
+  Globe,
+  Building2,
+  Users,
+  TrendingUp,
   Award,
   MapPin,
   CheckCircle2,
@@ -122,8 +122,8 @@ const Publications = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 via-transparent to-gold-50/30" />
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -202,7 +202,7 @@ const Publications = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]" />
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl" />
-            
+
             {/* Tooltip */}
             {hoveredCountry && (
               <motion.div
@@ -240,24 +240,24 @@ const Publications = () => {
                     <stop offset="100%" stopColor="#059669" stopOpacity="1" />
                   </linearGradient>
                   <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
                     <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
                     </feMerge>
                   </filter>
                   <filter id="shadow">
-                    <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.3"/>
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.3" />
                   </filter>
                 </defs>
-                
+
                 <Geographies geography={geoUrl}>
                   {({ geographies }) =>
                     geographies.map((geo) => {
                       const isActive = countries.some(
-                        country => geo.properties.name === country.name || 
-                                   (country.name === "Türkiye" && geo.properties.name === "Turkey") ||
-                                   (country.name === "UAE" && geo.properties.name === "United Arab Emirates")
+                        country => geo.properties.name === country.name ||
+                          (country.name === "Türkiye" && geo.properties.name === "Turkey") ||
+                          (country.name === "UAE" && geo.properties.name === "United Arab Emirates")
                       )
                       return (
                         <Geography
@@ -268,11 +268,11 @@ const Publications = () => {
                           strokeWidth={0.8}
                           filter={isActive ? "url(#glow)" : ""}
                           style={{
-                            default: { 
+                            default: {
                               outline: "none",
                               transition: "all 0.3s ease"
                             },
-                            hover: { 
+                            hover: {
                               fill: isActive ? "#34d399" : "#475569",
                               outline: "none",
                               transition: "all 0.3s ease",
@@ -285,11 +285,11 @@ const Publications = () => {
                     })
                   }
                 </Geographies>
-                
+
                 {/* Enhanced Markers for each country */}
                 {countries.map((country, index) => (
-                  <Marker 
-                    key={index} 
+                  <Marker
+                    key={index}
                     coordinates={country.coordinates}
                     onMouseEnter={(e) => {
                       setHoveredCountry(country)
@@ -303,9 +303,9 @@ const Publications = () => {
                   >
                     <g filter="url(#shadow)">
                       {/* Outer glow ring */}
-                      <circle 
-                        r={16} 
-                        fill="#fbbf24" 
+                      <circle
+                        r={16}
+                        fill="#fbbf24"
                         fillOpacity={0.15}
                         className="animate-ping"
                         style={{
@@ -313,27 +313,27 @@ const Publications = () => {
                         }}
                       />
                       {/* Middle ring */}
-                      <circle 
-                        r={10} 
-                        fill="#f59e0b" 
+                      <circle
+                        r={10}
+                        fill="#f59e0b"
                         fillOpacity={0.4}
                         className="animate-pulse"
                       />
                       {/* Main marker */}
-                      <circle 
-                        r={7} 
-                        fill="#f59e0b" 
-                        stroke="#ffffff" 
+                      <circle
+                        r={7}
+                        fill="#f59e0b"
+                        stroke="#ffffff"
                         strokeWidth={2.5}
                         filter="url(#glow)"
                       />
                       {/* Inner highlight */}
-                      <circle 
-                        r={3} 
-                        fill="#fef3c7" 
+                      <circle
+                        r={3}
+                        fill="#fef3c7"
                         fillOpacity={0.8}
                       />
-                      
+
                       {/* Country name label */}
                       <text
                         textAnchor="middle"
@@ -351,7 +351,7 @@ const Publications = () => {
                       >
                         {country.name}
                       </text>
-                      
+
                       {/* Flag emoji */}
                       <text
                         textAnchor="middle"
@@ -453,15 +453,16 @@ const Publications = () => {
                 {/* PDF Preview */}
                 <div className="relative h-48 bg-gradient-to-br from-primary-50 to-gold-50 flex items-center justify-center overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-gold-500/10" />
-                  <div className="relative z-10 text-center">
+                  {/* Hide the centered icon on hover to avoid overlapping with overlay actions */}
+                  <div className="relative text-center transition-opacity duration-300 group-hover:opacity-0">
                     <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       <FileText className="h-8 w-8 text-white" />
                     </div>
                     <p className="text-sm font-medium text-slate-600">PDF Document</p>
                   </div>
-                  
+
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 z-10 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-3">
                       <a
                         href={`/${publication.filename}`}
@@ -491,20 +492,20 @@ const Publications = () => {
                     <Calendar className="h-4 w-4 text-primary-600" />
                     <span className="text-sm font-medium text-primary-600">{publication.year}</span>
                   </div>
-                  
+
                   <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-2">
                     {publication.title}
                   </h3>
-                  
+
                   <p className="text-sm text-slate-600 mb-4 line-clamp-2">
                     {publication.journal}
                   </p>
-                  
+
                   <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
                     <span>Vol. {publication.volume}</span>
                     <span>Pages {publication.pages}</span>
                   </div>
-                  
+
                   <p className="text-sm text-slate-600 line-clamp-3">
                     {publication.description}
                   </p>
@@ -546,47 +547,47 @@ const Publications = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
             >
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <h3 className="text-xl font-bold text-slate-900">{selectedPdf.title}</h3>
-              <button
-                onClick={() => setSelectedPdf(null)}
-                className="text-slate-500 hover:text-slate-700 transition-colors duration-200"
-              >
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div className="p-6">
-              <div className="bg-gray-100 rounded-lg p-8 text-center">
-                <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 mb-4">PDF Preview</p>
-                <p className="text-sm text-gray-500 mb-6">{selectedPdf.description}</p>
-                <div className="flex gap-4 justify-center">
-                  <a
-                    href={`/${selectedPdf.filename}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 border border-primary-600"
-                  >
-                    <Eye className="h-4 w-4" />
-                    View PDF
-                  </a>
-                  <a
-                    href={`/${selectedPdf.filename}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                    className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download PDF
-                  </a>
+              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                <h3 className="text-xl font-bold text-slate-900">{selectedPdf.title}</h3>
+                <button
+                  onClick={() => setSelectedPdf(null)}
+                  className="text-slate-500 hover:text-slate-700 transition-colors duration-200"
+                >
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="p-6">
+                <div className="bg-gray-100 rounded-lg p-8 text-center">
+                  <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-600 mb-4">PDF Preview</p>
+                  <p className="text-sm text-gray-500 mb-6">{selectedPdf.description}</p>
+                  <div className="flex gap-4 justify-center">
+                    <a
+                      href={`/${selectedPdf.filename}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 border border-primary-600"
+                    >
+                      <Eye className="h-4 w-4" />
+                      View PDF
+                    </a>
+                    <a
+                      href={`/${selectedPdf.filename}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download
+                      className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download PDF
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 

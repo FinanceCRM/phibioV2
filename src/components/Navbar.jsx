@@ -78,8 +78,8 @@ const Navbar = () => {
     },
     {
       icon: Sparkles,
-      title: 'Dermal Fillers & Cosmetics',
-      description: 'Luxury aesthetic products for cosmetic enhancement',
+      title: 'Dermal Fillers',
+      description: 'Luxury aesthetic products for enhancement',
       href: '/products/dermal-fillers'
     }
   ]

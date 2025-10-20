@@ -91,15 +91,15 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-gold-500" />
-                  <span className="text-beige-200 font-inter">hello@phibio.com</span>
+                  <span className="text-beige-200 font-inter">info@phibio.de</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-gold-500" />
-                  <span className="text-beige-200 font-inter">+1 (555) 123-4567</span>
+                  <span className="text-beige-200 font-inter">069 407 67 397</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-gold-500" />
-                  <span className="text-beige-200 font-inter">BioTech Park, CA 94000</span>
+                  <span className="text-beige-200 font-inter">Klinger Str. 24, 60313 Frankfurt am Main/ Germany</span>
                 </div>
               </div>
             </Motion.div>

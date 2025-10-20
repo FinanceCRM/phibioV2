@@ -23,7 +23,7 @@ const resources = {
       products: {
         intraocular: 'Intraocular Viscoelastics',
         intraarticular: 'Intraarticular Viscoelastics',
-        dermal: 'Dermal Fillers & Cosmetics',
+        dermal: 'Dermal Fillers',
       },
       hero: {
         mainTitle: 'Phibio Biotechnology',
@@ -199,8 +199,8 @@ const resources = {
       },
       productDetail: {
         backToHome: 'Back to Home',
-        downloadCatalog: 'Download Catalog',
-        downloadFullCatalog: 'Download Full Catalog (PDF)',
+        contactForCatalog: 'Contact for Catalog Information',
+        contactForCatalogDesc: 'Get in touch with us to learn more about our product catalogs',
       },
       intraocular: {
         title: 'Intraocular Viscoelastics',
@@ -240,7 +240,7 @@ const resources = {
         },
       },
       dermalFillers: {
-        title: 'Dermal Fillers & Cosmetics',
+        title: 'Dermal Fillers',
         description: 'Luxury aesthetic products focused on natural-looking enhancement, safety, and longevity.',
         highlights: ['Natural look', 'Safety first', 'Long-lasting'],
         products: {
@@ -576,8 +576,8 @@ const resources = {
       },
       productDetail: {
         backToHome: 'Zurück zur Startseite',
-        downloadCatalog: 'Katalog herunterladen',
-        downloadFullCatalog: 'Vollständigen Katalog herunterladen (PDF)',
+        contactForCatalog: 'Für Kataloginformationen kontaktieren',
+        contactForCatalogDesc: 'Kontaktieren Sie uns, um mehr über unsere Produktkataloge zu erfahren',
       },
       intraocular: {
         title: 'Intraokulare Viskoelastika',
@@ -953,8 +953,8 @@ const resources = {
       },
       productDetail: {
         backToHome: 'Volver al inicio',
-        downloadCatalog: 'Descargar catálogo',
-        downloadFullCatalog: 'Descargar catálogo completo (PDF)',
+        contactForCatalog: 'Contactar para información del catálogo',
+        contactForCatalogDesc: 'Póngase en contacto con nosotros para obtener más información sobre nuestros catálogos de productos',
       },
       intraocular: {
         title: 'Viscoelásticos intraoculares',
@@ -1330,8 +1330,8 @@ const resources = {
       },
       productDetail: {
         backToHome: 'Retour à l\'accueil',
-        downloadCatalog: 'Télécharger le catalogue',
-        downloadFullCatalog: 'Télécharger le catalogue complet (PDF)',
+        contactForCatalog: 'Contacter pour informations catalogue',
+        contactForCatalogDesc: 'Contactez-nous pour en savoir plus sur nos catalogues de produits',
       },
       intraocular: {
         title: 'Viscoélastiques intraoculaires',
@@ -1707,8 +1707,8 @@ const resources = {
       },
       productDetail: {
         backToHome: 'Вернуться на главную',
-        downloadCatalog: 'Скачать каталог',
-        downloadFullCatalog: 'Скачать полный каталог (PDF)',
+        contactForCatalog: 'Связаться для информации о каталоге',
+        contactForCatalogDesc: 'Свяжитесь с нами, чтобы узнать больше о наших каталогах продукции',
       },
       intraocular: {
         title: 'Интраокулярные вискоэластики',
@@ -2084,8 +2084,8 @@ const resources = {
       },
       productDetail: {
         backToHome: '返回首页',
-        downloadCatalog: '下载目录',
-        downloadFullCatalog: '下载完整目录（PDF）',
+        contactForCatalog: '联系获取目录信息',
+        contactForCatalogDesc: '联系我们了解更多关于我们产品目录的信息',
       },
       intraocular: {
         title: '眼内黏弹剂',
@@ -2461,8 +2461,8 @@ const resources = {
       },
       productDetail: {
         backToHome: 'Ana Sayfaya Dön',
-        downloadCatalog: 'Katalog İndir',
-        downloadFullCatalog: 'Tam Katalog İndir (PDF)',
+        contactForCatalog: 'Katalog bilgisi için iletişime geç',
+        contactForCatalogDesc: 'Ürün kataloglarımız hakkında daha fazla bilgi almak için bizimle iletişime geçin',
       },
       intraocular: {
         title: 'İntraoküler Viskoelastikler',

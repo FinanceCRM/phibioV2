@@ -12,6 +12,7 @@ import RDServices from './pages/services/RDServices'
 import CleanroomPacking from './pages/services/CleanroomPacking'
 import LaboratorySolutions from './pages/services/LaboratorySolutions'
 import ContractManufacturing from './pages/services/ContractManufacturing'
+import Contact from './components/Contact'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/services/cleanroom-packing" element={<CleanroomPacking />} />
         <Route path="/services/laboratory-solutions" element={<LaboratorySolutions />} />
         <Route path="/services/contract-manufacturing" element={<ContractManufacturing />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

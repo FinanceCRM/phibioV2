@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FileDown, ArrowLeft } from 'lucide-react'
+import { ArrowLeft, MessageCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
@@ -9,12 +9,11 @@ const ProductDetail = ({
   description,
   visuals = [],
   highlights = [],
-  catalogUrl,
 }) => {
   const { t } = useTranslation()
   
   return (
-    <section className="pt-24 pb-20 bg-gradient-to-b from-beige-50 to-white min-h-screen">
+    <section className="pt-24 pb-20 bg-gradient-to-b from-beige-50 to-white">
       <div className="relative">
         <div className="absolute inset-0 -z-10 h-56 bg-gradient-to-r from-primary-50 via-primary-100 to-gold-50" />
       </div>
@@ -77,44 +76,27 @@ const ProductDetail = ({
                     ))}
                   </div>
                 )}
-                {v.catalogUrl && (
-                  <div className="pt-2">
-                    <a
-                      href={v.catalogUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 text-primary-700 hover:text-primary-800 font-inter font-medium"
-                    >
-                      <FileDown className="h-4 w-4" />
-                      <span>{t('productDetail.downloadCatalog') || 'Download Catalog'}</span>
-                    </a>
-                  </div>
-                )}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Optional Page-level Catalog */}
-        {catalogUrl && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 text-center"
+        {/* Contact for Catalog */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 text-center"
+        >
+          <Link
+            to="/contact"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-2xl font-inter font-semibold shadow-luxury hover:shadow-luxury-lg transition-all duration-300"
           >
-            <a
-              href={catalogUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-2xl font-inter font-semibold shadow-luxury hover:shadow-luxury-lg transition-all duration-300"
-            >
-              <FileDown className="h-5 w-5" />
-              <span>{t('productDetail.downloadFullCatalog') || 'Download Full Catalog (PDF)'}</span>
-            </a>
-            <div className="text-sm text-gray-500 mt-3">Upload your PDF to `public/catalogs/` and keep the same file name.</div>
-          </motion.div>
-        )}
+            <MessageCircle className="h-5 w-5" />
+            <span>{t('productDetail.contactForCatalog') || 'Contact for Catalog Information'}</span>
+          </Link>
+          <div className="text-sm text-gray-500 mt-3">{t('productDetail.contactForCatalogDesc') || 'Get in touch with us to learn more about our product catalogs'}</div>
+        </motion.div>
       </div>
     </section>
   )

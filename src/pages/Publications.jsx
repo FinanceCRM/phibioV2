@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { 
   ComposableMap, 
@@ -14,7 +14,11 @@ import {
   TrendingUp, 
   Award,
   MapPin,
-  CheckCircle2
+  CheckCircle2,
+  FileText,
+  Download,
+  Eye,
+  Calendar
 } from 'lucide-react'
 
 // World map GeoJSON URL
@@ -24,6 +28,41 @@ const Publications = () => {
   const { t } = useTranslation()
   const [hoveredCountry, setHoveredCountry] = useState(null)
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
+  const [selectedPdf, setSelectedPdf] = useState(null)
+
+  // PDF publications data
+  const publications = [
+    {
+      id: 1,
+      title: "AOTT 2016; 50 458-463",
+      journal: "Acta Orthopaedica et Traumatologica Turcica",
+      year: "2016",
+      volume: "50",
+      pages: "458-463",
+      filename: "AOTT 2016; 50 458-463.pdf",
+      description: "Research publication on orthopaedic and traumatological studies"
+    },
+    {
+      id: 2,
+      title: "AOTT 2017; 51 331-336",
+      journal: "Acta Orthopaedica et Traumatologica Turcica",
+      year: "2017",
+      volume: "51",
+      pages: "331-336",
+      filename: "AOTT 2017; 51 331-336.pdf",
+      description: "Advanced research in orthopaedic medicine and trauma treatment"
+    },
+    {
+      id: 3,
+      title: "Kocaeli Med J. 2021;10(Ek Sayı 2)25-31",
+      journal: "Kocaeli Medical Journal",
+      year: "2021",
+      volume: "10",
+      pages: "25-31",
+      filename: "Kocaeli Med J. 2021;10(Ek Sayı 2)25-31.pdf",
+      description: "Medical research publication from Kocaeli University"
+    }
+  ]
 
   // Countries where we operate with their coordinates
   const countries = [
@@ -375,6 +414,181 @@ const Publications = () => {
           </div>
         </div>
       </section>
+
+      {/* Research Publications Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full font-medium mb-6">
+              <FileText className="h-5 w-5" />
+              <span>Research Publications</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-slate-900 mb-4">
+              Scientific{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-gold-600">
+                Publications
+              </span>
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Explore our latest research publications and scientific contributions to the medical field
+            </p>
+          </motion.div>
+
+          {/* Publications Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {publications.map((publication, index) => (
+              <motion.div
+                key={publication.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+              >
+                {/* PDF Preview */}
+                <div className="relative h-48 bg-gradient-to-br from-primary-50 to-gold-50 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-gold-500/10" />
+                  <div className="relative z-10 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <FileText className="h-8 w-8 text-white" />
+                    </div>
+                    <p className="text-sm font-medium text-slate-600">PDF Document</p>
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="flex gap-3">
+                      <a
+                        href={`/${publication.filename}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white text-slate-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 flex items-center gap-2"
+                      >
+                        <Eye className="h-4 w-4" />
+                        Preview
+                      </a>
+                      <a
+                        href={`/${publication.filename}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-primary-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200 flex items-center gap-2"
+                      >
+                        <Download className="h-4 w-4" />
+                        Download
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Calendar className="h-4 w-4 text-primary-600" />
+                    <span className="text-sm font-medium text-primary-600">{publication.year}</span>
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 line-clamp-2">
+                    {publication.title}
+                  </h3>
+                  
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                    {publication.journal}
+                  </p>
+                  
+                  <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                    <span>Vol. {publication.volume}</span>
+                    <span>Pages {publication.pages}</span>
+                  </div>
+                  
+                  <p className="text-sm text-slate-600 line-clamp-3">
+                    {publication.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center bg-gradient-to-r from-primary-600 to-gold-600 rounded-2xl p-8 text-white"
+          >
+            <h3 className="text-2xl font-bold mb-4">Stay Updated with Our Research</h3>
+            <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
+              Follow our latest scientific publications and research contributions to stay informed about medical advancements
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-white text-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200">
+                View All Publications
+              </button>
+              <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-primary-600 transition-colors duration-200">
+                Subscribe to Updates
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* PDF Preview Modal */}
+      <AnimatePresence>
+        {selectedPdf && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            >
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <h3 className="text-xl font-bold text-slate-900">{selectedPdf.title}</h3>
+              <button
+                onClick={() => setSelectedPdf(null)}
+                className="text-slate-500 hover:text-slate-700 transition-colors duration-200"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="p-6">
+              <div className="bg-gray-100 rounded-lg p-8 text-center">
+                <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-600 mb-4">PDF Preview</p>
+                <p className="text-sm text-gray-500 mb-6">{selectedPdf.description}</p>
+                <div className="flex gap-4 justify-center">
+                  <a
+                    href={`/${selectedPdf.filename}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 border border-primary-600"
+                  >
+                    <Eye className="h-4 w-4" />
+                    View PDF
+                  </a>
+                  <a
+                    href={`/${selectedPdf.filename}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+        )}
+      </AnimatePresence>
 
       {/* Achievements Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-gold-50">

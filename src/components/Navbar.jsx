@@ -107,27 +107,27 @@ const Navbar = () => {
   const navigationItems = [
     {
       name: t('nav.aboutUs'),
-      href: '#about',
+      href: location.pathname === '/' ? '#about' : '/#about',
       hasDropdown: false,
       isRoute: false
     },
     {
       name: t('nav.products'),
-      href: '#products',
+      href: location.pathname === '/' ? '#products' : '/#products',
       hasDropdown: true,
       dropdownItems: productsItems,
       isRoute: false
     },
     {
       name: t('nav.services'),
-      href: '#services',
+      href: '#',
       hasDropdown: true,
       dropdownItems: servicesItems,
       isRoute: false
     },
     {
       name: t('nav.media'),
-      href: '#media',
+      href: location.pathname === '/' ? '#media' : '/#media',
       hasDropdown: false,
       isRoute: false
     },
@@ -145,7 +145,7 @@ const Navbar = () => {
     },
     {
       name: t('nav.contact'),
-      href: '#contact',
+      href: location.pathname === '/' ? '#contact' : '/#contact',
       hasDropdown: false,
       isRoute: false
     }

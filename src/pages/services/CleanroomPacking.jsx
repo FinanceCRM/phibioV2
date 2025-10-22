@@ -39,15 +39,16 @@ const CleanroomPacking = () => {
   return (
     <div className="bg-white overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-gold-900 via-gold-800 to-primary-900 overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
             src="/src/assets/Cleanroompacking.jpeg" 
             alt="Cleanroom Packing" 
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-gold-900/60 via-gold-800/60 to-primary-900/60"></div>
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
         
         {/* Decorative Background Elements */}
@@ -95,13 +96,13 @@ const CleanroomPacking = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8">
+            <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
               <Package className="h-10 w-10 text-gold-400" />
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-white mb-6 drop-shadow-2xl">
               Cleanroom Packing
             </h1>
-            <p className="text-xl md:text-2xl text-beige-100 max-w-4xl mx-auto font-inter leading-relaxed">
+            <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto font-inter leading-relaxed drop-shadow-lg">
               Professional cleanroom packaging solutions that ensure your sensitive materials are protected from contamination
             </p>
           </motion.div>

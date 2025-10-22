@@ -43,10 +43,10 @@ const resources = {
         learnMore: 'Learn More',
         downloadBrochure: 'Download Brochure',
         stats: {
-          yearsResearch: 'Years of Research',
-          plantExtracts: 'Plant Extracts Studied',
-          awardsWon: 'Awards Won',
-          scientists: 'Scientists & Researchers',
+          yearsProduction: 'Years of Production and Research',
+          countries: 'Countries',
+          patentedFormulation: 'Patented Formulation',
+          scientificResearches: 'Scientific Researches',
         },
         features: {
           sustainable: 'Sustainable Practices',
@@ -2305,10 +2305,10 @@ const resources = {
         learnMore: 'Daha Fazla Bilgi',
         downloadBrochure: 'Broşürü İndir',
         stats: {
-          yearsResearch: 'Yıllık Araştırma',
-          plantExtracts: 'İncelenen Bitki Özleri',
-          awardsWon: 'Kazanılan Ödüller',
-          scientists: 'Bilim İnsanı & Araştırmacı',
+          yearsProduction: 'Yıllık Üretim ve Araştırma',
+          countries: 'Ülke',
+          patentedFormulation: 'Patentli Formülasyon',
+          scientificResearches: 'Bilimsel Araştırma',
         },
         features: {
           sustainable: 'Sürdürülebilir Uygulamalar',

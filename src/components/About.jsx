@@ -7,10 +7,10 @@ const About = () => {
   const { t } = useTranslation()
   
   const stats = [
-    { icon: Microscope, number: '15+', label: t('about.stats.yearsResearch') },
-    { icon: Leaf, number: '500+', label: t('about.stats.plantExtracts') },
-    { icon: Award, number: '25+', label: t('about.stats.awardsWon') },
-    { icon: Users, number: '100+', label: t('about.stats.scientists') },
+    { icon: Microscope, number: '13+', label: t('about.stats.yearsProduction') },
+    { icon: Leaf, number: '14+', label: t('about.stats.countries') },
+    { icon: Award, number: '1+', label: t('about.stats.patentedFormulation') },
+    { icon: Users, number: '100+', label: t('about.stats.scientificResearches') },
   ]
 
   return (

@@ -1,36 +1,48 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Zap, Droplets, Flower } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { ArrowRight } from 'lucide-react'
+import logo from '../assets/logo.png'
 
 const Products = () => {
-  const { t } = useTranslation()
   
   const products = [
     {
-      icon: Droplets,
-      title: t('productsPage.items.bioExtract'),
-      category: t('productsPage.categories.laboratory'),
-      description: t('productsPage.items.bioExtractDesc'),
-      features: [t('productsPage.features.purity'), t('productsPage.features.sustainable'), t('productsPage.features.scalable')],
-      image: 'from-blue-100 to-primary-100'
+      title: 'ViscoPhi™',
+      category: 'Intra-articular Solutions',
+      description: 'ViscoPhi™ is a sterile ready-to-use intra-articular viscoelastic implant gel solution to treat human joint disorders such as osteoarthritis and it comes in a prefilled, ready to use syringe.',
+      features: [
+        'Linear bond, Crosslinked and Combined Hyaluronic Acid',
+        'Non-animal source',
+        'High viscosity and molecular weight'
+      ],
+      image: 'from-blue-100 to-primary-100',
+      logo: logo
     },
     {
-      icon: Flower,
-      title: t('productsPage.items.natureTech'),
-      category: t('productsPage.categories.activeIngredients'),
-      description: t('productsPage.items.natureTechDesc'),
-      features: [t('productsPage.features.clinicallyTested'), t('productsPage.features.zeroSynthetic'), t('productsPage.features.traceable')],
-      image: 'from-primary-100 to-green-100'
+      title: 'VisOcu™',
+      category: 'Ocular Solutions',
+      description: 'VisOcu™ is a sterile, cohesive, isotonic, pyrogen-free, and viscoelastic preparation of highly purified HA and HPMC.',
+      features: [
+        '8 different dosages',
+        'Lubrication, support and protection of ocular tissues',
+        'High molecular weight and viscosity'
+      ],
+      image: 'from-primary-100 to-green-100',
+      logo: logo
     },
     {
-      icon: Zap,
-      title: t('productsPage.items.bioSynth'),
-      category: t('productsPage.categories.researchTools'),
-      description: t('productsPage.items.bioSynthDesc'),
-      features: [t('productsPage.features.aiDriven'), t('productsPage.features.rapidPrototyping'), t('productsPage.features.patentPending')],
-      image: 'from-gold-100 to-yellow-100'
+      title: 'PhilExir™',
+      category: 'Dermal Fillers',
+      description: 'PhilExir™ is a cutting-edge injectable designed to revitalize facial contours and awaken skin radiance, helping you look refreshed, lifted, and beautifully renewed.',
+      features: [
+        'Linear and Crosslinked formulations',
+        'Fuller facial features',
+        'Bright and youthful appearance',
+        'Challenge fatigue and aging with PhilExir'
+      ],
+      image: 'from-gold-100 to-yellow-100',
+      logo: logo
     }
   ]
 
@@ -46,11 +58,11 @@ const Products = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">
-            {t('productsPage.title')}
-            <span className="gradient-text"> {t('productsPage.titleHighlight')}</span>
+            Innovative
+            <span className="gradient-text"> Products</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-            {t('productsPage.description')}
+            Our portfolio spans cutting-edge medical solutions, premium bioactive compounds, and revolutionary research platforms that push the boundaries of biotechnology.
           </p>
         </motion.div>
 
@@ -65,10 +77,14 @@ const Products = () => {
               viewport={{ once: true }}
               className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover"
             >
-              {/* Product Image/Icon */}
+              {/* Product Image/Logo */}
               <div className={`relative h-48 rounded-2xl mb-6 bg-gradient-to-br ${product.image} flex items-center justify-center overflow-hidden`}>
-                <div className="w-16 h-16 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center">
-                  <product.icon className="h-8 w-8 text-primary-600" />
+                <div className="w-24 h-24 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
+                  <img 
+                    src={product.logo} 
+                    alt={`${product.title} logo`}
+                    className="h-16 w-16 object-contain"
+                  />
                 </div>
                 
                 {/* Floating particles */}
@@ -121,10 +137,10 @@ const Products = () => {
 
                 {/* CTA */}
                 <Link
-                  to={index === 0 ? '/products/intraocular' : index === 1 ? '/products/intraarticular' : '/products/dermal-fillers'}
+                  to={index === 0 ? '/products/intraarticular' : index === 1 ? '/products/intraocular' : '/products/dermal-fillers'}
                   className="group/btn w-full mt-6 bg-gradient-to-r from-primary-600 to-primary-700 text-white py-3 px-6 rounded-full font-inter font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-200 flex items-center justify-center space-x-2"
                 >
-                  <span>{t('productsPage.learnMore')}</span>
+                  <span>Learn More</span>
                   <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
                 </Link>
               </div>
@@ -141,7 +157,7 @@ const Products = () => {
           className="text-center mt-16"
         >
           <button className="bg-white text-primary-700 px-8 py-4 rounded-full font-inter font-semibold border border-primary-200 hover:bg-primary-50 hover:border-primary-300 transition-all duration-200 shadow-lg hover:shadow-xl">
-{t('productsPage.viewCatalog')}
+            View Complete Product Catalog
           </button>
         </motion.div>
       </div>

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -15,6 +15,41 @@ import ContractManufacturing from './pages/services/ContractManufacturing'
 import Contact from './components/Contact'
 
 function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    // Handle smooth scrolling for hash links
+    const handleHashScroll = () => {
+      const hash = window.location.hash
+      if (hash) {
+        const element = document.querySelector(hash)
+        if (element) {
+          const navbarHeight = 120 // Account for fixed navbar
+          const elementPosition = element.offsetTop - navbarHeight
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          })
+        }
+      }
+    }
+
+    // Handle initial page load with hash
+    handleHashScroll()
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashScroll)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashScroll)
+    }
+  }, [])
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   return (
     <div className="bg-white overflow-x-hidden">
       <Navbar />

@@ -2,22 +2,23 @@ import React from 'react'
 import { motion as Motion } from 'framer-motion'
 import { Leaf, Mail, Phone, MapPin, ArrowRight, Linkedin, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const { t } = useTranslation()
   
   const quickLinks = [
-    { name: t('footer.links.aboutUs'), href: '#about' },
-    { name: t('footer.links.philosophy'), href: '#philosophy' },
-    { name: t('footer.links.products'), href: '#products' },
-    { name: t('footer.links.science'), href: '#science' },
-    { name: t('footer.links.contact'), href: '#contact' },
+    { name: t('footer.links.aboutUs'), href: '/#about' },
+    { name: t('footer.links.philosophy'), href: '/#about' },
+    { name: t('footer.links.products'), href: '/#products' },
+    { name: t('footer.links.science'), href: '/#products' },
+    { name: t('footer.links.contact'), href: '/#contact' },
   ]
 
   const products = [
-    { name: 'Intraocular Viscoelastics', href: '#products' },
-    { name: 'Intraarticular Viscoelastics', href: '#products' },
-    { name: 'Dermal Fillers', href: '#products' },
+    { name: 'Intraocular Viscoelastics', href: '/products/intraocular' },
+    { name: 'Intraarticular Viscoelastics', href: '/products/intraarticular' },
+    { name: 'Dermal Fillers', href: '/products/dermal-fillers' },
   ]
 
   const socialLinks = [
@@ -141,12 +142,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {products.map((product, index) => (
                   <li key={index}>
-                    <a
-                      href={product.href}
+                    <Link
+                      to={product.href}
                       className="text-beige-200 hover:text-gold-400 transition-colors duration-200 font-inter"
                     >
                       {product.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

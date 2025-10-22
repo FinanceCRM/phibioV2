@@ -42,6 +42,16 @@ const LaboratorySolutions = () => {
     <div className="bg-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-primary-900 via-gold-900 to-primary-800 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="/src/assets/Cleanroomlaboratorysolutions.jpeg" 
+            alt="Cleanroom & Laboratory Solutions" 
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/60 via-gold-900/60 to-primary-800/60"></div>
+        </div>
+        
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-80 h-80 bg-primary-400 rounded-full blur-3xl"></div>

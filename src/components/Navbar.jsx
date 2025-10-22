@@ -16,9 +16,9 @@ import {
   Sparkles,
   ArrowRight,
   Mail,
-  Phone
+  Phone,
+  Award
 } from 'lucide-react'
-import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const { t, i18n } = useTranslation()
@@ -41,25 +41,29 @@ const Navbar = () => {
       icon: FlaskConical,
       title: 'R&D Services',
       description: 'Advanced research and development solutions for biotechnology innovation',
-      href: '/services/rd-services'
+      href: '/services/rd-services',
+      image: '/src/assets/R&Dservices.jpeg'
     },
     {
       icon: Package,
       title: 'Cleanroom Packing',
       description: 'Sterile packaging solutions in controlled cleanroom environments',
-      href: '/services/cleanroom-packing'
+      href: '/services/cleanroom-packing',
+      image: '/src/assets/Cleanroompacking.jpeg'
     },
     {
       icon: Building2,
       title: 'Cleanroom & Laboratory Solutions',
       description: 'Complete laboratory setup and cleanroom facility management',
-      href: '/services/laboratory-solutions'
+      href: '/services/laboratory-solutions',
+      image: '/src/assets/Cleanroomlaboratorysolutions.jpeg'
     },
     {
       icon: Microscope,
       title: 'Contract Manufacturing',
       description: 'End-to-end manufacturing services for biotech products',
-      href: '/services/contract-manufacturing'
+      href: '/services/contract-manufacturing',
+      image: '/src/assets/Contractmanufacturing.jpeg'
     }
   ]
 
@@ -194,19 +198,33 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* CE-MDR Approved Text */}
           <Link to="/">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex items-center z-50 cursor-pointer"
+              className="flex items-center space-x-3 z-50 cursor-pointer group"
             >
-              <img 
-                src={logo} 
-                alt="Phibio Logo" 
-                className="h-16 w-auto object-contain"
-              />
+              <div className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 ${
+                showSolid 
+                  ? 'bg-gradient-to-r from-primary-50 to-gold-50 border border-primary-200' 
+                  : 'bg-white/10 backdrop-blur-md border border-white/20'
+              }`}>
+                <Award className={`h-6 w-6 ${showSolid ? 'text-primary-600' : 'text-white'}`} />
+                <div className="flex flex-col">
+                  <span className={`text-xs font-bold tracking-wider ${
+                    showSolid ? 'text-primary-900' : 'text-white'
+                  }`}>
+                    CE-MDR APPROVED
+                  </span>
+                  <span className={`text-[10px] font-medium leading-tight ${
+                    showSolid ? 'text-gray-600' : 'text-white/90'
+                  }`}>
+                    Viscoelastic Solutions for<br/>Ophthalmic & Orthopaedic Devices
+                  </span>
+                </div>
+              </div>
             </motion.div>
           </Link>
 
@@ -277,8 +295,18 @@ const Navbar = () => {
                             className="group flex items-start space-x-4 p-3 rounded-xl hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
                           >
                             <Link to={dropdownItem.href} className="flex items-start space-x-4 flex-1">
-                              <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
-                                <dropdownItem.icon className="h-6 w-6 text-primary-600" />
+                              <div className="relative w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                                {dropdownItem.image ? (
+                                  <img 
+                                    src={dropdownItem.image} 
+                                    alt={dropdownItem.title}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                  />
+                                ) : (
+                                  <div className="w-full h-full bg-primary-100 rounded-xl flex items-center justify-center">
+                                    <dropdownItem.icon className="h-6 w-6 text-primary-600" />
+                                  </div>
+                                )}
                               </div>
                               <div className="flex-1">
                                 <h4 className="font-inter font-semibold text-slate-800 group-hover:text-slate-700 transition-colors duration-300">
@@ -400,8 +428,18 @@ const Navbar = () => {
                           className="flex items-center space-x-3 p-3 rounded-xl hover:bg-primary-50 transition-colors duration-300"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-gold-100 rounded-xl flex items-center justify-center">
-                            <dropdownItem.icon className="h-5 w-5 text-primary-600" />
+                          <div className="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0">
+                            {dropdownItem.image ? (
+                              <img 
+                                src={dropdownItem.image} 
+                                alt={dropdownItem.title}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-to-br from-primary-100 to-gold-100 rounded-xl flex items-center justify-center">
+                                <dropdownItem.icon className="h-5 w-5 text-primary-600" />
+                              </div>
+                            )}
                           </div>
                           <div>
                             <div className="font-inter font-medium text-slate-800">

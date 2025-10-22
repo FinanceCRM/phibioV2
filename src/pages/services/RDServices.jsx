@@ -40,6 +40,16 @@ const RDServices = () => {
     <div className="bg-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="/src/assets/R&Dservices.jpeg" 
+            alt="R&D Services" 
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/60 via-primary-800/60 to-primary-700/60"></div>
+        </div>
+        
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-gold-400 rounded-full blur-3xl"></div>

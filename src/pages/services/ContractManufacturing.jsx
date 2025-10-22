@@ -49,6 +49,16 @@ const ContractManufacturing = () => {
     <div className="bg-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-primary-900 via-primary-700 to-gold-800 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="/src/assets/Contractmanufacturing.jpeg" 
+            alt="Contract Manufacturing" 
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/60 via-primary-700/60 to-gold-800/60"></div>
+        </div>
+        
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-20 w-80 h-80 bg-gold-400 rounded-full blur-3xl"></div>

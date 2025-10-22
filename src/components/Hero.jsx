@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion as Motion } from 'framer-motion'
 import slide from '../assets/slide.jpeg'
+import logo from '../assets/logo.png'
 import { ArrowRight, Play } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
@@ -54,6 +55,20 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
+          {/* Logo */}
+          <Motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="flex justify-center mb-6"
+          >
+            <img 
+              src={logo} 
+              alt="Phibio Logo" 
+              className="h-24 md:h-32 lg:h-40 w-auto object-contain drop-shadow-2xl"
+            />
+          </Motion.div>
+
           {/* Main Headline */}
           <Motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -61,8 +76,6 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold text-primary-900 leading-tight"
           >
-            {t('hero.mainTitle')}
-            <br />
             <span className="gradient-text">{t('hero.subTitle')}</span>
           </Motion.h1>
 

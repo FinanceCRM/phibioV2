@@ -57,47 +57,8 @@ const Career = () => {
     }, 3000)
   }
 
-  const jobListings = [
-    {
-      id: 1,
-      title: t('career.jobs.biotech.title'),
-      department: t('career.jobs.biotech.department'),
-      location: t('career.jobs.biotech.location'),
-      type: t('career.jobs.biotech.type'),
-      description: t('career.jobs.biotech.description'),
-      requirements: [
-        t('career.jobs.biotech.req1'),
-        t('career.jobs.biotech.req2'),
-        t('career.jobs.biotech.req3')
-      ]
-    },
-    {
-      id: 2,
-      title: t('career.jobs.quality.title'),
-      department: t('career.jobs.quality.department'),
-      location: t('career.jobs.quality.location'),
-      type: t('career.jobs.quality.type'),
-      description: t('career.jobs.quality.description'),
-      requirements: [
-        t('career.jobs.quality.req1'),
-        t('career.jobs.quality.req2'),
-        t('career.jobs.quality.req3')
-      ]
-    },
-    {
-      id: 3,
-      title: t('career.jobs.regulatory.title'),
-      department: t('career.jobs.regulatory.department'),
-      location: t('career.jobs.regulatory.location'),
-      type: t('career.jobs.regulatory.type'),
-      description: t('career.jobs.regulatory.description'),
-      requirements: [
-        t('career.jobs.regulatory.req1'),
-        t('career.jobs.regulatory.req2'),
-        t('career.jobs.regulatory.req3')
-      ]
-    }
-  ]
+  // No current job openings
+  const jobListings = []
 
   const values = [
     {
@@ -146,21 +107,13 @@ const Career = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a
-                href="#openings"
+                href="#application"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-gold-600 to-gold-700 text-primary-900 px-8 py-4 rounded-full font-inter font-semibold shadow-luxury hover:shadow-luxury-lg transition-all duration-300 flex items-center space-x-2"
               >
                 <Briefcase className="h-5 w-5" />
-                <span>{t('career.hero.viewPositions')}</span>
-              </motion.a>
-              <motion.a
-                href="#application"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-inter font-semibold hover:bg-white/20 transition-all duration-300"
-              >
-                {t('career.hero.applyNow')}
+                <span>{t('career.hero.applyNow')}</span>
               </motion.a>
             </div>
           </motion.div>
@@ -210,7 +163,7 @@ const Career = () => {
         </div>
       </section>
 
-      {/* Job Openings Section */}
+      {/* No Current Openings Section */}
       <section id="openings" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -218,76 +171,29 @@ const Career = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">
-              {t('career.openings.title')}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-              {t('career.openings.description')}
-            </p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {jobListings.map((job, index) => (
-              <motion.div
-                key={job.id}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-white to-luxury-cream rounded-3xl p-8 shadow-luxury hover:shadow-luxury-lg transition-all duration-300 border border-luxury-platinum/20"
+            <div className="bg-gradient-to-br from-white to-luxury-cream rounded-3xl p-12 shadow-luxury border border-luxury-platinum/20">
+              <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-gold-100 rounded-full flex items-center justify-center mx-auto mb-8">
+                <Briefcase className="h-12 w-12 text-primary-600" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-primary-900 mb-6">
+                {t('career.openings.title')}
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed mb-8">
+                {t('career.openings.noOpenings')}
+              </p>
+              <motion.a
+                href="#application"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-primary-600 to-gold-600 text-white px-8 py-4 rounded-full font-inter font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
               >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-                  <div className="flex-1">
-                    <h3 className="text-3xl font-playfair font-bold text-primary-900 mb-3">
-                      {job.title}
-                    </h3>
-                    <div className="flex flex-wrap gap-4 mb-4">
-                      <div className="flex items-center text-gray-600 font-inter">
-                        <Briefcase className="h-5 w-5 mr-2 text-primary-600" />
-                        {job.department}
-                      </div>
-                      <div className="flex items-center text-gray-600 font-inter">
-                        <MapPin className="h-5 w-5 mr-2 text-primary-600" />
-                        {job.location}
-                      </div>
-                      <div className="flex items-center text-gray-600 font-inter">
-                        <Clock className="h-5 w-5 mr-2 text-primary-600" />
-                        {job.type}
-                      </div>
-                    </div>
-                  </div>
-                  <motion.a
-                    href="#application"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-primary-600 to-gold-600 text-white px-6 py-3 rounded-full font-inter font-semibold shadow-lg hover:shadow-xl transition-all duration-300 whitespace-nowrap mt-4 lg:mt-0"
-                  >
-                    {t('career.openings.apply')}
-                  </motion.a>
-                </div>
-
-                <p className="text-gray-700 font-inter leading-relaxed mb-6">
-                  {job.description}
-                </p>
-
-                <div>
-                  <h4 className="text-lg font-playfair font-semibold text-primary-900 mb-3">
-                    {t('career.openings.requirements')}
-                  </h4>
-                  <ul className="space-y-2">
-                    {job.requirements.map((req, idx) => (
-                      <li key={idx} className="flex items-start text-gray-700 font-inter">
-                        <CheckCircle className="h-5 w-5 mr-2 text-primary-600 flex-shrink-0 mt-0.5" />
-                        <span>{req}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                <Mail className="h-5 w-5" />
+                <span>{t('career.openings.sendResume')}</span>
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -390,19 +296,15 @@ const Career = () => {
                       <Briefcase className="h-4 w-4 inline mr-2" />
                       {t('career.form.position')}
                     </label>
-                    <select
+                    <input
+                      type="text"
                       name="position"
                       value={formData.position}
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-600 focus:ring-2 focus:ring-primary-600/20 transition-all duration-200 font-inter"
-                    >
-                      <option value="">{t('career.form.selectPosition')}</option>
-                      {jobListings.map(job => (
-                        <option key={job.id} value={job.title}>{job.title}</option>
-                      ))}
-                      <option value="other">{t('career.form.otherPosition')}</option>
-                    </select>
+                      placeholder={t('career.form.positionPlaceholder')}
+                    />
                   </div>
                 </div>
 

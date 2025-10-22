@@ -315,6 +315,8 @@ const resources = {
           description: 'Explore opportunities to join our team and make a difference in global healthcare.',
           apply: 'Apply for Position',
           requirements: 'Key Requirements:',
+          noOpenings: 'Currently, we have no open positions. However, we are always interested in connecting with talented individuals who share our passion for innovation in biotechnology.',
+          sendResume: 'Send Resume to info@phibio.de',
         },
         jobs: {
           biotech: {
@@ -692,6 +694,8 @@ const resources = {
           description: 'Entdecken Sie Möglichkeiten, unserem Team beizutreten und einen Unterschied im globalen Gesundheitswesen zu machen.',
           apply: 'Auf Position bewerben',
           requirements: 'Hauptanforderungen:',
+          noOpenings: 'Derzeit haben wir keine offenen Stellen. Wir sind jedoch immer daran interessiert, talentierte Personen kennenzulernen, die unsere Leidenschaft für Innovation in der Biotechnologie teilen.',
+          sendResume: 'Lebenslauf an info@phibio.de senden',
         },
         jobs: {
           biotech: {
@@ -1069,6 +1073,8 @@ const resources = {
           description: 'Explore oportunidades para unirse a nuestro equipo y hacer una diferencia en la atención médica global.',
           apply: 'Solicitar Posición',
           requirements: 'Requisitos Clave:',
+          noOpenings: 'Actualmente no tenemos posiciones abiertas. Sin embargo, siempre estamos interesados en conectar con individuos talentosos que compartan nuestra pasión por la innovación en biotecnología.',
+          sendResume: 'Enviar CV a info@phibio.de',
         },
         jobs: {
           biotech: {
@@ -1446,6 +1452,8 @@ const resources = {
           description: 'Explorez les opportunités de rejoindre notre équipe et de faire une différence dans les soins de santé mondiaux.',
           apply: 'Postuler pour le Poste',
           requirements: 'Exigences Clés:',
+          noOpenings: 'Actuellement, nous n\'avons pas de postes ouverts. Cependant, nous sommes toujours intéressés à nous connecter avec des individus talentueux qui partagent notre passion pour l\'innovation en biotechnologie.',
+          sendResume: 'Envoyer CV à info@phibio.de',
         },
         jobs: {
           biotech: {
@@ -1823,6 +1831,8 @@ const resources = {
           description: 'Исследуйте возможности присоединиться к нашей команде и изменить мировое здравоохранение.',
           apply: 'Подать Заявку на Вакансию',
           requirements: 'Ключевые Требования:',
+          noOpenings: 'В настоящее время у нас нет открытых вакансий. Однако мы всегда заинтересованы в знакомстве с талантливыми людьми, которые разделяют нашу страсть к инновациям в биотехнологии.',
+          sendResume: 'Отправить резюме на info@phibio.de',
         },
         jobs: {
           biotech: {
@@ -2200,6 +2210,8 @@ const resources = {
           description: '探索加入我们团队的机会，为全球医疗保健做出贡献。',
           apply: '申请职位',
           requirements: '关键要求：',
+          noOpenings: '目前我们没有空缺职位。但是，我们总是有兴趣与分享我们对生物技术创新热情的才华横溢的个人建立联系。',
+          sendResume: '发送简历至 info@phibio.de',
         },
         jobs: {
           biotech: {
@@ -2577,6 +2589,8 @@ const resources = {
           description: 'Ekibimize katılma ve küresel sağlık hizmetlerinde fark yaratma fırsatlarını keşfedin.',
           apply: 'Pozisyon İçin Başvur',
           requirements: 'Ana Gereksinimler:',
+          noOpenings: 'Şu anda açık pozisyonumuz bulunmamaktadır. Ancak, biyoteknoloji alanındaki yeniliklere olan tutkumuzu paylaşan yetenekli bireylerle bağlantı kurmaya her zaman ilgi duyuyoruz.',
+          sendResume: 'CV\'yi info@phibio.de adresine gönder',
         },
         jobs: {
           biotech: {

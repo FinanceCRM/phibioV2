@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Package, Shield, FileCheck, Layers, Lock, ClipboardCheck, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import CleanroomPackingImage from '../../assets/Cleanroompacking.jpeg'
 
 const CleanroomPacking = () => {
   const features = [
@@ -42,15 +43,15 @@ const CleanroomPacking = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src="/src/assets/Cleanroompacking.jpeg" 
-            alt="Cleanroom Packing" 
+          <img
+            src={CleanroomPackingImage}
+            alt="Cleanroom Packing"
             className="w-full h-full object-cover"
           />
           {/* Subtle overlay for text readability */}
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
-        
+
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 right-10 w-72 h-72 bg-primary-400 rounded-full blur-3xl"></div>
@@ -111,7 +112,7 @@ const CleanroomPacking = () => {
         {/* Decorative Bottom Wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z" fill="white"/>
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z" fill="white" />
           </svg>
         </div>
       </section>

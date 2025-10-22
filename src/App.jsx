@@ -12,7 +12,7 @@ import RDServices from './pages/services/RDServices'
 import CleanroomPacking from './pages/services/CleanroomPacking'
 import LaboratorySolutions from './pages/services/LaboratorySolutions'
 import ContractManufacturing from './pages/services/ContractManufacturing'
-import Contact from './components/Contact'
+import ContactPage from './pages/ContactPage'
 
 function App() {
   const location = useLocation()
@@ -47,7 +47,13 @@ function App() {
 
   // Scroll to top on route change
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // Only scroll to top if there's no hash in the URL
+    if (!window.location.hash) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant' // Use instant for immediate scroll on page change
+      })
+    }
   }, [location.pathname])
 
   return (
@@ -64,7 +70,7 @@ function App() {
         <Route path="/services/cleanroom-packing" element={<CleanroomPacking />} />
         <Route path="/services/laboratory-solutions" element={<LaboratorySolutions />} />
         <Route path="/services/contract-manufacturing" element={<ContractManufacturing />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </div>

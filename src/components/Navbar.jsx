@@ -3,9 +3,9 @@ import { Link, useLocation } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { 
-  Menu, 
-  X, 
+import {
+  Menu,
+  X,
   ChevronDown,
   Microscope,
   FlaskConical,
@@ -19,6 +19,10 @@ import {
   Phone,
   Award
 } from 'lucide-react'
+import RDServicesImage from '../assets/R&Dservices.jpeg'
+import CleanroomPackingImage from '../assets/Cleanroompacking.jpeg'
+import CleanroomLabImage from '../assets/Cleanroomlaboratorysolutions.jpeg'
+import ContractManufacturingImage from '../assets/Contractmanufacturing.jpeg'
 
 const Navbar = () => {
   const { t, i18n } = useTranslation()
@@ -42,28 +46,28 @@ const Navbar = () => {
       title: 'R&D Services',
       description: 'Advanced research and development solutions for biotechnology innovation',
       href: '/services/rd-services',
-      image: '/src/assets/R&Dservices.jpeg'
+      image: RDServicesImage
     },
     {
       icon: Package,
       title: 'Cleanroom Packing',
       description: 'Sterile packaging solutions in controlled cleanroom environments',
       href: '/services/cleanroom-packing',
-      image: '/src/assets/Cleanroompacking.jpeg'
+      image: CleanroomPackingImage
     },
     {
       icon: Building2,
       title: 'Cleanroom & Laboratory Solutions',
       description: 'Complete laboratory setup and cleanroom facility management',
       href: '/services/laboratory-solutions',
-      image: '/src/assets/Cleanroomlaboratorysolutions.jpeg'
+      image: CleanroomLabImage
     },
     {
       icon: Microscope,
       title: 'Contract Manufacturing',
       description: 'End-to-end manufacturing services for biotech products',
       href: '/services/contract-manufacturing',
-      image: '/src/assets/Contractmanufacturing.jpeg'
+      image: ContractManufacturingImage
     }
   ]
 
@@ -173,11 +177,11 @@ const Navbar = () => {
         setIsLanguageDropdownOpen(false)
       }
     }
-    
+
     if (isLanguageDropdownOpen) {
       document.addEventListener('click', handleClickOutside)
     }
-    
+
     return () => {
       document.removeEventListener('click', handleClickOutside)
     }
@@ -190,11 +194,10 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        showSolid
-          ? 'bg-white shadow-lg border-b border-gray-200'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${showSolid
+        ? 'bg-white shadow-lg border-b border-gray-200'
+        : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -206,22 +209,19 @@ const Navbar = () => {
               transition={{ delay: 0.2 }}
               className="flex items-center space-x-3 z-50 cursor-pointer group"
             >
-              <div className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 ${
-                showSolid 
-                  ? 'bg-gradient-to-r from-primary-50 to-gold-50 border border-primary-200' 
-                  : 'bg-white/10 backdrop-blur-md border border-white/20'
-              }`}>
+              <div className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 ${showSolid
+                ? 'bg-gradient-to-r from-primary-50 to-gold-50 border border-primary-200'
+                : 'bg-white/10 backdrop-blur-md border border-white/20'
+                }`}>
                 <Award className={`h-6 w-6 ${showSolid ? 'text-primary-600' : 'text-white'}`} />
                 <div className="flex flex-col">
-                  <span className={`text-xs font-bold tracking-wider ${
-                    showSolid ? 'text-primary-900' : 'text-white'
-                  }`}>
+                  <span className={`text-xs font-bold tracking-wider ${showSolid ? 'text-primary-900' : 'text-white'
+                    }`}>
                     CE-MDR APPROVED
                   </span>
-                  <span className={`text-[10px] font-medium leading-tight ${
-                    showSolid ? 'text-gray-600' : 'text-white/90'
-                  }`}>
-                    Viscoelastic Solutions for<br/>Ophthalmic & Orthopaedic Devices
+                  <span className={`text-[10px] font-medium leading-tight ${showSolid ? 'text-gray-600' : 'text-white/90'
+                    }`}>
+                    Viscoelastic Solutions for<br />Ophthalmic & Orthopaedic Devices
                   </span>
                 </div>
               </div>
@@ -243,11 +243,10 @@ const Navbar = () => {
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 + index * 0.1 }}
-                      className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter transition-colors duration-200 ${
-                        showSolid
-                          ? 'text-slate-700 font-medium hover:text-primary-600 hover:bg-gray-100'
-                          : 'text-white font-semibold drop-shadow hover:text-white bg-transparent hover:bg-white/10'
-                      }`}
+                      className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter transition-colors duration-200 ${showSolid
+                        ? 'text-slate-700 font-medium hover:text-primary-600 hover:bg-gray-100'
+                        : 'text-white font-semibold drop-shadow hover:text-white bg-transparent hover:bg-white/10'
+                        }`}
                     >
                       <span>{item.name}</span>
                     </motion.div>
@@ -258,18 +257,16 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
-                    className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter transition-colors duration-200 ${
-                      showSolid
-                        ? 'text-slate-700 font-medium hover:text-primary-600 hover:bg-gray-100'
-                        : 'text-white font-semibold drop-shadow hover:text-white bg-transparent hover:bg-white/10'
-                    }`}
+                    className={`flex items-center space-x-1 px-4 py-3 rounded-xl font-inter transition-colors duration-200 ${showSolid
+                      ? 'text-slate-700 font-medium hover:text-primary-600 hover:bg-gray-100'
+                      : 'text-white font-semibold drop-shadow hover:text-white bg-transparent hover:bg-white/10'
+                      }`}
                   >
                     <span>{item.name}</span>
                     {item.hasDropdown && (
-                      <ChevronDown 
-                        className={`h-4 w-4 transition-transform duration-200 ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
-                        } ${showSolid ? 'text-inherit' : 'text-white drop-shadow'}`} 
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
+                          } ${showSolid ? 'text-inherit' : 'text-white drop-shadow'}`}
                       />
                     )}
                   </motion.a>
@@ -297,8 +294,8 @@ const Navbar = () => {
                             <Link to={dropdownItem.href} className="flex items-start space-x-4 flex-1">
                               <div className="relative w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
                                 {dropdownItem.image ? (
-                                  <img 
-                                    src={dropdownItem.image} 
+                                  <img
+                                    src={dropdownItem.image}
                                     alt={dropdownItem.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                   />
@@ -321,17 +318,17 @@ const Navbar = () => {
                           </motion.div>
                         ))}
                       </div>
-                      
+
                       {/* Dropdown Footer */}
                       <div className="mt-6 pt-6 border-t border-gray-200/50">
                         <div className="flex items-center justify-between">
                           <div className="text-sm text-slate-500 font-inter">
                             {t('dropdown.needHelp')}
                           </div>
-                          <button className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-inter font-medium text-sm transition-colors duration-300 hover:underline underline-offset-4">
+                          <Link to="/contact" className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-inter font-medium text-sm transition-colors duration-300 hover:underline underline-offset-4">
                             <Mail className="h-4 w-4" />
                             <span>{t('dropdown.contactExpert')}</span>
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </motion.div>
@@ -342,7 +339,7 @@ const Navbar = () => {
 
             {/* Language (Desktop) - click dropdown */}
             <div className="relative ml-4 language-dropdown">
-              <div 
+              <div
                 className={`flex items-center gap-2 px-2 py-1 rounded-md cursor-pointer ${showSolid ? 'text-slate-700' : 'text-white'}`}
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
               >
@@ -354,7 +351,7 @@ const Navbar = () => {
                   <ul className="py-2">
                     {languages.map((lng) => (
                       <li key={lng.code}>
-                        <div 
+                        <div
                           className="flex items-center gap-3 px-4 py-2 text-slate-700 hover:bg-gray-50 cursor-pointer"
                           onClick={() => handleLanguageChange(lng.code)}
                         >
@@ -373,9 +370,8 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-3 rounded-xl transition-colors duration-200 ${
-                isScrolled ? 'text-slate-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-              }`}
+              className={`p-3 rounded-xl transition-colors duration-200 ${isScrolled ? 'text-slate-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                }`}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -418,7 +414,7 @@ const Navbar = () => {
                       <ChevronDown className="h-5 w-5 text-slate-400" />
                     )}
                   </div>
-                  
+
                   {item.hasDropdown && (
                     <div className="pl-4 space-y-3 border-l-2 border-primary-100">
                       {item.dropdownItems.map((dropdownItem, idx) => (
@@ -430,8 +426,8 @@ const Navbar = () => {
                         >
                           <div className="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0">
                             {dropdownItem.image ? (
-                              <img 
-                                src={dropdownItem.image} 
+                              <img
+                                src={dropdownItem.image}
                                 alt={dropdownItem.title}
                                 className="w-full h-full object-cover"
                               />
@@ -455,7 +451,7 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              
+
               <div className="pt-6 border-t border-gray-200/50">
                 {/* Languages (Mobile) - collapsible dropdown, no button styling */}
                 <details className="group">
@@ -465,8 +461,8 @@ const Navbar = () => {
                   </summary>
                   <ul className="mt-2 space-y-2">
                     {languages.map((lng) => (
-                      <li 
-                        key={lng.code} 
+                      <li
+                        key={lng.code}
                         className="flex items-center gap-3 px-2 py-2 text-slate-700 cursor-pointer hover:bg-gray-50 rounded-md"
                         onClick={() => handleLanguageChange(lng.code)}
                       >

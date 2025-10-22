@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const { t } = useTranslation()
-  
+
   const quickLinks = [
     { name: t('footer.links.aboutUs'), href: '/#about' },
     { name: t('footer.links.philosophy'), href: '/#about' },
     { name: t('footer.links.products'), href: '/#products' },
     { name: t('footer.links.science'), href: '/#products' },
-    { name: t('footer.links.contact'), href: '/#contact' },
+    { name: t('footer.links.contact'), href: '/contact' },
   ]
 
   const products = [
@@ -87,7 +87,7 @@ const Footer = () => {
               <p className="text-beige-200 font-inter leading-relaxed mb-6">
                 {t('footer.companyDesc')}
               </p>
-              
+
               {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
@@ -163,7 +163,7 @@ const Footer = () => {
               <h4 className="text-lg font-playfair font-semibold text-gold-400 mb-6">
                 {t('footer.connectWith')}
               </h4>
-              
+
               {/* Social Links */}
               <div className="flex space-x-4 mb-8">
                 {socialLinks.map((social, index) => (

@@ -209,7 +209,7 @@ const resources = {
         products: {
           viscoPhiIntro: 'ViscoPhi Intro',
           viscoPhiIntroDesc: 'High-clarity viscoelastic optimized for phacoemulsification.',
-          visocuHMPC: 'Visocu HMPC',
+          visocuHMPC: 'Visocu HPMC',
           visocuHMPCDesc: 'Enhanced cohesion for stable anterior chamber maintenance.',
           visocu: 'Visocu',
           visocuDesc: 'Balanced viscosity profile for versatile ophthalmic procedures.',
@@ -226,11 +226,11 @@ const resources = {
         description: 'Advanced joint injection solutions designed to improve mobility and reduce discomfort with biocompatible formulations.',
         highlights: ['Smooth injection', 'Formulation stability', 'Patient comfort'],
         products: {
-          jointSmooth: 'Joint Smooth',
+          jointSmooth: 'ViscoPhi',
           jointSmoothDesc: 'Optimized viscosity for smooth intraarticular injection.',
-          stabilityMax: 'Stability Max',
+          stabilityMax: 'ViscoPhi Cross',
           stabilityMaxDesc: 'Formulation stability to support sustained joint function.',
-          comfortPlus: 'Comfort Plus',
+          comfortPlus: 'ViscoPhi Trio',
           comfortPlusDesc: 'Engineered for reduced injection force and patient comfort.',
         },
         badges: {
@@ -586,7 +586,7 @@ const resources = {
         products: {
           viscoPhiIntro: 'ViscoPhi Intro',
           viscoPhiIntroDesc: 'Hochklares Viskoelastikum optimiert für Phakoemulsifikation.',
-          visocuHMPC: 'Visocu HMPC',
+          visocuHMPC: 'Visocu HPMC',
           visocuHMPCDesc: 'Verbesserte Kohäsion für stabile Vorderkammerpflege.',
           visocu: 'Visocu',
           visocuDesc: 'Ausgewogenes Viskositätsprofil für vielseitige ophthalmische Verfahren.',
@@ -603,11 +603,11 @@ const resources = {
         description: 'Fortschrittliche Gelenkinjektionslösungen zur Verbesserung der Mobilität.',
         highlights: ['Glatte Injektion', 'Formulierungsstabilität', 'Patientenkomfort'],
         products: {
-          jointSmooth: 'Joint Smooth',
+          jointSmooth: 'ViscoPhi',
           jointSmoothDesc: 'Optimierte Viskosität für glatte intraartikuläre Injektion.',
-          stabilityMax: 'Stability Max',
+          stabilityMax: 'ViscoPhi Cross',
           stabilityMaxDesc: 'Formulierungsstabilität zur Unterstützung der Gelenkfunktion.',
-          comfortPlus: 'Comfort Plus',
+          comfortPlus: 'ViscoPhi Trio',
           comfortPlusDesc: 'Entwickelt für reduzierte Injektionskraft und Patientenkomfort.',
         },
         badges: {
@@ -963,7 +963,7 @@ const resources = {
         products: {
           viscoPhiIntro: 'ViscoPhi Intro',
           viscoPhiIntroDesc: 'Viscoelástico de alta claridad optimizado para facoemulsificación.',
-          visocuHMPC: 'Visocu HMPC',
+          visocuHMPC: 'Visocu HPMC',
           visocuHMPCDesc: 'Cohesión mejorada para mantenimiento estable de la cámara anterior.',
           visocu: 'Visocu',
           visocuDesc: 'Perfil de viscosidad equilibrado para procedimientos oftálmicos versátiles.',
@@ -980,11 +980,11 @@ const resources = {
         description: 'Soluciones avanzadas de inyección articular diseñadas para mejorar la movilidad.',
         highlights: ['Inyección suave', 'Estabilidad de formulación', 'Comodidad del paciente'],
         products: {
-          jointSmooth: 'Joint Smooth',
+          jointSmooth: 'ViscoPhi',
           jointSmoothDesc: 'Viscosidad optimizada para inyección intraarticular suave.',
-          stabilityMax: 'Stability Max',
+          stabilityMax: 'ViscoPhi Cross',
           stabilityMaxDesc: 'Estabilidad de formulación para apoyar la función articular sostenida.',
-          comfortPlus: 'Comfort Plus',
+          comfortPlus: 'ViscoPhi Trio',
           comfortPlusDesc: 'Diseñado para fuerza de inyección reducida y comodidad del paciente.',
         },
         badges: {
@@ -1340,7 +1340,7 @@ const resources = {
         products: {
           viscoPhiIntro: 'ViscoPhi Intro',
           viscoPhiIntroDesc: 'Viscoélastique haute clarté optimisé pour la phacoémulsification.',
-          visocuHMPC: 'Visocu HMPC',
+          visocuHMPC: 'Visocu HPMC',
           visocuHMPCDesc: 'Cohésion améliorée pour un maintien stable de la chambre antérieure.',
           visocu: 'Visocu',
           visocuDesc: 'Profil de viscosité équilibré pour des procédures ophtalmiques polyvalentes.',
@@ -1717,7 +1717,7 @@ const resources = {
         products: {
           viscoPhiIntro: 'ViscoPhi Intro',
           viscoPhiIntroDesc: 'Высокопрозрачный вискоэластик, оптимизированный для факоэмульсификации.',
-          visocuHMPC: 'Visocu HMPC',
+          visocuHMPC: 'Visocu HPMC',
           visocuHMPCDesc: 'Улучшенная когезия для стабильного поддержания передней камеры.',
           visocu: 'Visocu',
           visocuDesc: 'Сбалансированный профиль вязкости для универсальных офтальмологических процедур.',
@@ -1734,11 +1734,11 @@ const resources = {
         description: 'Передовые решения для внутрисуставных инъекций для улучшения подвижности.',
         highlights: ['Плавная инъекция', 'Стабильность формулы', 'Комфорт пациента'],
         products: {
-          jointSmooth: 'Joint Smooth',
+          jointSmooth: 'ViscoPhi',
           jointSmoothDesc: 'Оптимизированная вязкость для плавной внутрисуставной инъекции.',
-          stabilityMax: 'Stability Max',
+          stabilityMax: 'ViscoPhi Cross',
           stabilityMaxDesc: 'Стабильность формулы для поддержки устойчивой функции сустава.',
-          comfortPlus: 'Comfort Plus',
+          comfortPlus: 'ViscoPhi Trio',
           comfortPlusDesc: 'Разработан для снижения силы инъекции и комфорта пациента.',
         },
         badges: {
@@ -2094,7 +2094,7 @@ const resources = {
         products: {
           viscoPhiIntro: 'ViscoPhi Intro',
           viscoPhiIntroDesc: '为超声乳化优化的高清晰度黏弹剂。',
-          visocuHMPC: 'Visocu HMPC',
+          visocuHMPC: 'Visocu HPMC',
           visocuHMPCDesc: '增强粘性，稳定前房维护。',
           visocu: 'Visocu',
           visocuDesc: '平衡的粘度特性，适用于多种眼科手术。',
@@ -2471,7 +2471,7 @@ const resources = {
         products: {
           viscoPhiIntro: 'ViscoPhi Intro',
           viscoPhiIntroDesc: 'Fakoemülsifikasyon için optimize edilmiş yüksek netlikli viskoelastik.',
-          visocuHMPC: 'Visocu HMPC',
+          visocuHMPC: 'Visocu HPMC',
           visocuHMPCDesc: 'Stabil ön kamara bakımı için geliştirilmiş kohezyon.',
           visocu: 'Visocu',
           visocuDesc: 'Çok yönlü oftalmik prosedürler için dengeli viskozite profili.',

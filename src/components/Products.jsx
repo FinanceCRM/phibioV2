@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import logo from '../assets/logo.png'
+import viscophiImage from '../assets/1. ViscoPhi şırınga.jpg'
+import visocuImage from '../assets/2. VisOcu şırınga.jpg'
+import philexirImage from '../assets/3. PhilExir şırınga.jpg'
 
 const Products = () => {
   
@@ -16,7 +19,7 @@ const Products = () => {
         'Non-animal source',
         'High viscosity and molecular weight'
       ],
-      image: 'from-blue-100 to-primary-100',
+      image: viscophiImage,
       logo: logo
     },
     {
@@ -28,7 +31,7 @@ const Products = () => {
         'Lubrication, support and protection of ocular tissues',
         'High molecular weight and viscosity'
       ],
-      image: 'from-primary-100 to-green-100',
+      image: visocuImage,
       logo: logo
     },
     {
@@ -41,7 +44,7 @@ const Products = () => {
         'Bright and youthful appearance',
         'Challenge fatigue and aging with PhilExir'
       ],
-      image: 'from-gold-100 to-yellow-100',
+      image: philexirImage,
       logo: logo
     }
   ]
@@ -77,38 +80,14 @@ const Products = () => {
               viewport={{ once: true }}
               className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover"
             >
-              {/* Product Image/Logo */}
-              <div className={`relative h-48 rounded-2xl mb-6 bg-gradient-to-br ${product.image} flex items-center justify-center overflow-hidden`}>
-                <div className="w-24 h-24 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                  <img 
-                    src={product.logo} 
-                    alt={`${product.title} logo`}
-                    className="h-16 w-16 object-contain"
-                  />
-                </div>
-                
-                {/* Floating particles */}
-                <div className="absolute inset-0">
-                  {[...Array(8)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-white/40 rounded-full"
-                      style={{
-                        left: `${20 + Math.random() * 60}%`,
-                        top: `${20 + Math.random() * 60}%`,
-                      }}
-                      animate={{
-                        y: [0, -10, 0],
-                        opacity: [0.4, 0.8, 0.4],
-                      }}
-                      transition={{
-                        duration: 2 + Math.random() * 2,
-                        repeat: Infinity,
-                        delay: Math.random() * 2,
-                      }}
-                    />
-                  ))}
-                </div>
+              {/* Product Image */}
+              <div className="relative h-48 rounded-2xl mb-6 overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={product.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
               </div>
 
               {/* Content */}

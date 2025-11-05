@@ -131,9 +131,9 @@ const Navbar = () => {
     },
     {
       name: t('nav.media'),
-      href: location.pathname === '/' ? '#media' : '/#media',
+      href: '/media',
       hasDropdown: false,
-      isRoute: false
+      isRoute: true
     },
     {
       name: t('nav.publications'),

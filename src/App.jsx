@@ -8,6 +8,7 @@ import Intraarticular from './pages/product/Intraarticular'
 import DermalFillers from './pages/product/DermalFillers'
 import Publications from './pages/Publications'
 import Career from './pages/Career'
+import MediaPage from './pages/MediaPage'
 import RDServices from './pages/services/RDServices'
 import CleanroomPacking from './pages/services/CleanroomPacking'
 import LaboratorySolutions from './pages/services/LaboratorySolutions'
@@ -66,6 +67,7 @@ function App() {
         <Route path="/products/dermal-fillers" element={<DermalFillers />} />
         <Route path="/publications" element={<Publications />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/media" element={<MediaPage />} />
         <Route path="/services/rd-services" element={<RDServices />} />
         <Route path="/services/cleanroom-packing" element={<CleanroomPacking />} />
         <Route path="/services/laboratory-solutions" element={<LaboratorySolutions />} />

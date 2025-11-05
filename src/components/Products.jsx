@@ -8,7 +8,7 @@ import visocuImage from '../assets/2. VisOcu şırınga.jpg'
 import philexirImage from '../assets/3. PhilExir şırınga.jpg'
 
 const Products = () => {
-  
+
   const products = [
     {
       title: 'ViscoPhi™',
@@ -24,7 +24,7 @@ const Products = () => {
     },
     {
       title: 'VisOcu™',
-      category: 'Ocular Solutions',
+      category: 'Intra-ocular Solutions',
       description: 'VisOcu™ is a sterile, cohesive, isotonic, pyrogen-free, and viscoelastic preparation of highly purified HA and HPMC.',
       features: [
         '8 different dosages',
@@ -82,10 +82,10 @@ const Products = () => {
             >
               {/* Product Image */}
               <div className="relative h-48 rounded-2xl mb-6 overflow-hidden">
-                <img 
-                  src={product.image} 
+                <img
+                  src={product.image}
                   alt={product.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${product.title === 'PhilExir™' ? 'transform rotate-90' : ''}`}
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
               </div>

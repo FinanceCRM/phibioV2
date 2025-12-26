@@ -85,7 +85,7 @@ const Products = () => {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${product.title === 'PhilExir™' ? 'transform rotate-90' : ''}`}
+                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300`}
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300"></div>
               </div>

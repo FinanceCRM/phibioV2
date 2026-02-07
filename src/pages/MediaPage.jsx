@@ -78,9 +78,9 @@ const MediaPage = () => {
       description: 'International Society of Orthopaedic Surgery and Traumatology Congress 2025'
     },
     {
-      title: 'Dubai Fair',
+      title: 'Phibio WHX Dubai',
       image: event1,
-      description: 'Phibio GmbH at Dubai Fair'
+      description: 'Phibio WHX at Dubai Fair'
     }
   ]
 

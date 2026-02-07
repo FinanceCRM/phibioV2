@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Image, Package, Calendar, ChevronDown, ChevronUp } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -21,7 +22,20 @@ import kalem from '../assets/kalem.JPG'
 
 const MediaPage = () => {
   const { t } = useTranslation()
+  const location = useLocation()
   const [expandedCategories, setExpandedCategories] = useState(['packaging', 'events', 'other'])
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '')
+      setTimeout(() => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 500)
+    }
+  }, [location.hash])
 
   const productPackaging = [
     {
@@ -148,6 +162,7 @@ const MediaPage = () => {
           {categories.map((category, categoryIndex) => (
             <motion.div
               key={category.id}
+              id={category.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
@@ -197,11 +212,11 @@ const MediaPage = () => {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
                       >
-                        <div className="relative h-64 overflow-hidden">
+                        <div className="relative h-64 overflow-hidden bg-gray-50">
                           <img
                             src={item.image}
                             alt={item.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            className="w-full h-full object-contain object-center group-hover:scale-110 transition-transform duration-500"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">

@@ -17,8 +17,11 @@ import {
   ArrowRight,
   Mail,
   Phone,
-  Award
+  Award,
+  Calendar
 } from 'lucide-react'
+import sicot2025 from '../assets/SICOT 2025 Madrid.JPG'
+import event1 from '../assets/event_1.jpg'
 import RDServicesImage from '../assets/R&Dservices.jpeg'
 import CleanroomPackingImage from '../assets/Cleanroompacking.jpeg'
 import CleanroomLabImage from '../assets/Cleanroomlaboratorysolutions.jpeg'
@@ -92,6 +95,15 @@ const Navbar = () => {
     }
   ]
 
+  const mediaItems = [
+    {
+      icon: Calendar,
+      title: 'Events & Conferences',
+      description: 'Explore our participation in global events and conferences',
+      href: '/media#events'
+    }
+  ]
+
   const languages = [
     { code: 'en', label: 'English', flag: '🇺🇸' },
     { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
@@ -132,7 +144,8 @@ const Navbar = () => {
     {
       name: t('nav.media'),
       href: '/media',
-      hasDropdown: false,
+      hasDropdown: true,
+      dropdownItems: mediaItems,
       isRoute: true
     },
     {
@@ -249,6 +262,12 @@ const Navbar = () => {
                         }`}
                     >
                       <span>{item.name}</span>
+                      {item.hasDropdown && (
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
+                            } ${showSolid ? 'text-inherit' : 'text-white drop-shadow'}`}
+                        />
+                      )}
                     </motion.div>
                   </Link>
                 ) : (

@@ -16,11 +16,12 @@ import vspKatalogKutu2 from '../assets/vsp katalog kutu 2.JPG'
 
 // Import Other Images
 import sicot2025 from '../assets/SICOT 2025 Madrid.JPG'
+import event1 from '../assets/event_1.jpg'
 import kalem from '../assets/kalem.JPG'
 
 const MediaPage = () => {
   const { t } = useTranslation()
-  const [expandedCategory, setExpandedCategory] = useState('packaging')
+  const [expandedCategories, setExpandedCategories] = useState(['packaging', 'events', 'other'])
 
   const productPackaging = [
     {
@@ -75,6 +76,11 @@ const MediaPage = () => {
       title: 'SICOT 2025 Madrid',
       image: sicot2025,
       description: 'International Society of Orthopaedic Surgery and Traumatology Congress 2025'
+    },
+    {
+      title: 'Dubai Fair',
+      image: event1,
+      description: 'Phibio GmbH at Dubai Fair'
     }
   ]
 
@@ -111,7 +117,11 @@ const MediaPage = () => {
   ]
 
   const toggleCategory = (categoryId) => {
-    setExpandedCategory(expandedCategory === categoryId ? null : categoryId)
+    setExpandedCategories(prev =>
+      prev.includes(categoryId)
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId]
+    )
   }
 
   return (
@@ -161,7 +171,7 @@ const MediaPage = () => {
                     </p>
                   </div>
                 </div>
-                {expandedCategory === category.id ? (
+                {expandedCategories.includes(category.id) ? (
                   <ChevronUp className="h-6 w-6 text-primary-600" />
                 ) : (
                   <ChevronDown className="h-6 w-6 text-primary-600" />
@@ -169,7 +179,7 @@ const MediaPage = () => {
               </button>
 
               {/* Category Content */}
-              {expandedCategory === category.id && (
+              {expandedCategories.includes(category.id) && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
